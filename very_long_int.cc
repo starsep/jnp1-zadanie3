@@ -1,4 +1,5 @@
 #include "very_long_int.h"
+#include <iostream>
 
 VeryLongInt::VeryLongInt() {
 	//TODO
@@ -12,8 +13,12 @@ VeryLongInt::VeryLongInt(VeryLongInt &&) {
 	//TODO
 }
 
+VeryLongInt::VeryLongInt(unsigned) {
+    //TODO
+}
+
 VeryLongInt::VeryLongInt(unsigned long long) {
-	//TODO
+    //TODO
 }
 
 VeryLongInt::VeryLongInt(const std::string &) {

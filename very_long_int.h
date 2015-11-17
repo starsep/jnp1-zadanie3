@@ -7,10 +7,11 @@
 
 class VeryLongInt {
 	public:
-		VeryLongInt();
+        VeryLongInt();
 		VeryLongInt(const VeryLongInt &);
 		VeryLongInt(VeryLongInt &&);
-		VeryLongInt(unsigned long long);
+        explicit VeryLongInt(unsigned);
+		explicit VeryLongInt(unsigned long long);
 		VeryLongInt(const std::string &);
 		size_t numberOfBinaryDigits() const;
         virtual bool isValid() const;
