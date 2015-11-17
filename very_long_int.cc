@@ -16,12 +16,6 @@ VeryLongInt::VeryLongInt(unsigned long long) {
 	//TODO
 }
 
-/*
-VeryLongInt::VeryLongInt(const char *) {
-	//TODO
-}
-*/
-
 VeryLongInt::VeryLongInt(const std::string &) {
 	//TODO
 }
