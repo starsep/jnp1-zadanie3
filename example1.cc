@@ -1,5 +1,6 @@
 #include "very_long_int.h"
 #include <cassert>
+#include <iostream>
 
 int main() {	
 	{
@@ -89,7 +90,7 @@ int main() {
     }
 
     {
-        VeryLongInt x(string("12345678"));
+        VeryLongInt x(std::string("12345678"));
         VeryLongInt y(12345678U);
         assert(x == y);
     }
@@ -98,7 +99,7 @@ int main() {
         VeryLongInt x("12345678901234567890");
         VeryLongInt y(12345678901234567890UL);
         assert(x == y);
-        cout << y << endl;
+        std::cout << y << std::endl;
     }
 
     {    
