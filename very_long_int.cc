@@ -18,6 +18,27 @@ VeryLongInt::VeryLongInt(VeryLongInt &&) {
     //TODO
 }
 
+VeryLongInt::VeryLongInt(int number) {
+	VeryLongInt(static_cast<long long>(number));
+}
+
+VeryLongInt::VeryLongInt(long number) {
+	VeryLongInt(static_cast<long long>(number));
+}
+
+VeryLongInt::VeryLongInt(unsigned long number) {
+	VeryLongInt(static_cast<unsigned long long>(number));
+}
+
+VeryLongInt::VeryLongInt(long long number) {
+	if (number < 0) {
+		makeNaN();
+	}
+	else {
+		VeryLongInt(static_cast<unsigned long long>(number));
+	}
+}
+
 VeryLongInt::VeryLongInt(unsigned number) {
     VeryLongInt(static_cast<unsigned long long>(number));
 }
@@ -33,12 +54,25 @@ VeryLongInt::VeryLongInt(unsigned long long number) {
 
 VeryLongInt::VeryLongInt(const std::string &number) {
     //TODO
-    char *
+}
 
+VeryLongInt::VeryLongInt(const char *number) {
+	//TODO
+}
+
+void VeryLongInt::makeNaN() {
+	if(!isNaN) {
+		isNaN = true;
+		bitRep.clear();
+	}
+}
+
+bool VeryLongInt::isZero() const {
+	return bitRep.size() == 1 && !bitRep[0];
 }
 
 size_t VeryLongInt::numberOfBinaryDigits() const {
-    return 0; //TODO
+    return bitRep.size();
 }
 
 bool VeryLongInt::isValid() const {
@@ -46,11 +80,23 @@ bool VeryLongInt::isValid() const {
 }
 
 VeryLongInt::operator bool() const {
-    return true; //TODO
+    return isValid() && !isZero();
 }
 
 VeryLongInt& VeryLongInt::operator=(const VeryLongInt&) {
     return *this; //TODO
+}
+
+VeryLongInt & VeryLongInt::operator=(int) {
+	return *this; //TODO
+}
+
+VeryLongInt & VeryLongInt::operator=(long long) {
+	return *this; //TODO
+}
+
+VeryLongInt & VeryLongInt::operator=(unsigned) {
+	return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator=(unsigned long long) {
@@ -85,31 +131,31 @@ VeryLongInt & VeryLongInt::operator>>=(unsigned long long) {
     return *this; //TODO
 }
 
-VeryLongInt operator+(const VeryLongInt &, const VeryLongInt &) {
+const VeryLongInt operator+(const VeryLongInt &, const VeryLongInt &) {
     return VeryLongInt(); //TODO
 }
 
-VeryLongInt operator-(const VeryLongInt &, const VeryLongInt &) {
+const VeryLongInt operator-(const VeryLongInt &, const VeryLongInt &) {
     return VeryLongInt(); //TODO
 }
 
-VeryLongInt operator*(const VeryLongInt &, const VeryLongInt &) {
+const VeryLongInt operator*(const VeryLongInt &, const VeryLongInt &) {
     return VeryLongInt(); //TODO
 }
 
-VeryLongInt operator/(const VeryLongInt &, const VeryLongInt &) {
+const VeryLongInt operator/(const VeryLongInt &, const VeryLongInt &) {
     return VeryLongInt(); //TODO
 }
 
-VeryLongInt operator%(const VeryLongInt &, const VeryLongInt &) {
+const VeryLongInt operator%(const VeryLongInt &, const VeryLongInt &) {
     return VeryLongInt(); //TODO
 }
 
-VeryLongInt operator<<(const VeryLongInt &, unsigned long long) {
+const VeryLongInt operator<<(const VeryLongInt &, unsigned long long) {
     return VeryLongInt(); //TODO
 }
 
-VeryLongInt operator>>(const VeryLongInt &, unsigned long long) {
+const VeryLongInt operator>>(const VeryLongInt &, unsigned long long) {
     return VeryLongInt(); //TODO
 }
 
@@ -147,7 +193,7 @@ const VeryLongInt & Zero() {
 }
 
 const VeryLongInt & VeryLongInt::getNaN() {
-    nan.isNaN = true;
+    nan.makeNaN();
     return nan;
 }
 
