@@ -1,30 +1,40 @@
 #include "very_long_int.h"
 #include <iostream>
+#include <algorithm>
 
 VeryLongInt VeryLongInt::nan = VeryLongInt();
 
 VeryLongInt::VeryLongInt() {
-	//TODO
+    bitRep.push_back(0);
+    isNaN = false;
 }
 
-VeryLongInt::VeryLongInt(const VeryLongInt &) {
-	//TODO
+VeryLongInt::VeryLongInt(const VeryLongInt &source) {
+    bitRep = source.bitRep;
+    isNaN = source.isNaN;
 }
 
 VeryLongInt::VeryLongInt(VeryLongInt &&) {
 	//TODO
 }
 
-VeryLongInt::VeryLongInt(unsigned) {
-    //TODO
+VeryLongInt::VeryLongInt(unsigned number) {
+    VeryLongInt(static_cast<unsigned long long>(number));
 }
 
-VeryLongInt::VeryLongInt(unsigned long long) {
+VeryLongInt::VeryLongInt(unsigned long long number) {
     //TODO
+    isNaN = false;
+    for ( ; number > 0; number /= 2) {
+        bitRep.push_back(number % 2);
+    }
+    //std::reverse(bitRep.begin(), bitRep.end());
 }
 
-VeryLongInt::VeryLongInt(const std::string &) {
+VeryLongInt::VeryLongInt(const std::string &number) {
 	//TODO
+    char *
+
 }
 
 size_t VeryLongInt::numberOfBinaryDigits() const {
