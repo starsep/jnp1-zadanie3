@@ -6,6 +6,10 @@
 #include <string>
 
 class VeryLongInt {
+	private:
+		static VeryLongInt nan;
+		bool isNaN;
+		static const VeryLongInt & getNaN();
 	public:
         VeryLongInt();
 		VeryLongInt(const VeryLongInt &);
@@ -14,24 +18,24 @@ class VeryLongInt {
 		explicit VeryLongInt(unsigned long long);
 		VeryLongInt(const std::string &);
 		size_t numberOfBinaryDigits() const;
-        virtual bool isValid() const;
-        explicit operator bool() const;
+        bool isValid() const;
+		explicit operator bool() const;
         VeryLongInt & operator=(const VeryLongInt&);
+		VeryLongInt & operator=(unsigned long long);
 		VeryLongInt & operator+=(const VeryLongInt &);
 		VeryLongInt & operator-=(const VeryLongInt &);
 		VeryLongInt & operator*=(const VeryLongInt &);
 		VeryLongInt & operator/=(const VeryLongInt &);
 		VeryLongInt & operator%=(const VeryLongInt &);
-		VeryLongInt & operator<<=(unsigned);
-		VeryLongInt & operator>>=(unsigned);
-        bool operator()();
+		VeryLongInt & operator<<=(unsigned long long);
+		VeryLongInt & operator>>=(unsigned long long);
 		friend VeryLongInt operator+(const VeryLongInt &, const VeryLongInt &);
 		friend VeryLongInt operator-(const VeryLongInt &, const VeryLongInt &);
 		friend VeryLongInt operator*(const VeryLongInt &, const VeryLongInt &);
 		friend VeryLongInt operator/(const VeryLongInt &, const VeryLongInt &);
 		friend VeryLongInt operator%(const VeryLongInt &, const VeryLongInt &);
-		friend VeryLongInt operator<<(const VeryLongInt &, unsigned);
-		friend VeryLongInt operator>>(const VeryLongInt &, unsigned);
+		friend VeryLongInt operator<<(const VeryLongInt &, unsigned long long);
+		friend VeryLongInt operator>>(const VeryLongInt &, unsigned long long);
 		friend bool operator==(const VeryLongInt &, const VeryLongInt &);
 		friend bool operator!=(const VeryLongInt &, const VeryLongInt &);
 		friend bool operator<(const VeryLongInt &, const VeryLongInt &);
@@ -39,21 +43,10 @@ class VeryLongInt {
 		friend bool operator>(const VeryLongInt &, const VeryLongInt &);
 		friend bool operator>=(const VeryLongInt &, const VeryLongInt &);
 		friend std::ostream & operator<<(std::ostream &, const VeryLongInt &);
-		static const VeryLongInt & Zero();
-		static const VeryLongInt & NaN();
+		friend const VeryLongInt & Zero();
+		friend const VeryLongInt & NaN();
 		~VeryLongInt();
 };
 
-const VeryLongInt & Zero();
-const VeryLongInt & NaN();
-
-class Nan : public VeryLongInt {
-    private:
-        static const Nan singleton;
-        Nan();
-    public:
-        virtual bool isValid();
-        static const Nan & getNaN();
-};
 
 #endif //VERY_LONG_INT_H

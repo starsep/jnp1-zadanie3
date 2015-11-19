@@ -1,6 +1,8 @@
 #include "very_long_int.h"
 #include <iostream>
 
+VeryLongInt VeryLongInt::nan = VeryLongInt();
+
 VeryLongInt::VeryLongInt() {
 	//TODO
 }
@@ -41,6 +43,10 @@ VeryLongInt& VeryLongInt::operator=(const VeryLongInt&) {
     return *this; //TODO
 }
 
+VeryLongInt & VeryLongInt::operator=(unsigned long long) {
+    return *this; //TODO
+}
+
 VeryLongInt & VeryLongInt::operator+=(const VeryLongInt &) {
 	return *this; //TODO
 }
@@ -61,16 +67,12 @@ VeryLongInt & VeryLongInt::operator%=(const VeryLongInt &) {
 	return *this; //TODO
 }
 
-VeryLongInt & VeryLongInt::operator<<=(unsigned) {
+VeryLongInt & VeryLongInt::operator<<=(unsigned long long) {
 	return *this; //TODO
 }
 
-VeryLongInt & VeryLongInt::operator>>=(unsigned) {
+VeryLongInt & VeryLongInt::operator>>=(unsigned long long) {
 	return *this; //TODO
-}
-
-bool VeryLongInt::operator()() {
-    return isValid(); //TODO
 }
 
 VeryLongInt operator+(const VeryLongInt &, const VeryLongInt &) {
@@ -93,11 +95,11 @@ VeryLongInt operator%(const VeryLongInt &, const VeryLongInt &) {
     return VeryLongInt(); //TODO
 }
 
-VeryLongInt operator<<(const VeryLongInt &, unsigned) {
+VeryLongInt operator<<(const VeryLongInt &, unsigned long long) {
     return VeryLongInt(); //TODO
 }
 
-VeryLongInt operator>>(const VeryLongInt &, unsigned) {
+VeryLongInt operator>>(const VeryLongInt &, unsigned long long) {
     return VeryLongInt(); //TODO
 }
 
@@ -129,28 +131,22 @@ std::ostream & operator<<(std::ostream &ostream, const VeryLongInt &) {
     return ostream; //TODO
 }
 
+const VeryLongInt & Zero() {
+    static const VeryLongInt zero = VeryLongInt();
+    return zero;
+}
+
+const VeryLongInt & VeryLongInt::getNaN() {
+    nan.isNaN = true;
+    return nan;
+}
+
+const VeryLongInt & NaN() {
+    return VeryLongInt::getNaN();
+}
+
 VeryLongInt::~VeryLongInt() {
 
 }
 
-const Nan Nan::singleton = Nan();
-
-Nan::Nan() {
-}
-
-const Nan & Nan::getNaN() {
-    return singleton;
-}
-
-bool Nan::isValid() {
-    return false;
-}
-
-const VeryLongInt & Zero() {
-    static const VeryLongInt singleton = VeryLongInt();
-    return singleton;
-}
-const VeryLongInt & NaN() {
-    return Nan::getNaN();
-}
 
