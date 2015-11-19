@@ -2,8 +2,8 @@
 #include <cassert>
 #include <iostream>
 
-int main() {	
-	{
+int main() {
+    {
         VeryLongInt x = 1;
         x /= 0;
         assert(!x.isValid());
@@ -102,7 +102,7 @@ int main() {
         std::cout << y << std::endl;
     }
 
-    {    
+    {
         VeryLongInt x("1234567890123456789012345678901234567890");
         VeryLongInt y("1204567890123456789012345678901234567890");
         VeryLongInt z(  "30000000000000000000000000000000000000");
@@ -119,7 +119,7 @@ int main() {
     {
         const int N = 1000;
         VeryLongInt x = 1;
-        for (int i = 2; i <= N; ++i)    
+        for (int i = 2; i <= N; ++i)
 
             x *= i;
         for (int i = 2; i <= N; ++i)

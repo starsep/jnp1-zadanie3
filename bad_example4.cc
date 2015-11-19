@@ -2,7 +2,7 @@
 #include <string>
 
 int main() {
-	VeryLongInt d;
+    VeryLongInt d;
     d -= ::std::string("123"); // błąd kompilacji
     return 0;
 }

@@ -15,7 +15,7 @@ VeryLongInt::VeryLongInt(const VeryLongInt &source) {
 }
 
 VeryLongInt::VeryLongInt(VeryLongInt &&) {
-	//TODO
+    //TODO
 }
 
 VeryLongInt::VeryLongInt(unsigned number) {
@@ -32,13 +32,13 @@ VeryLongInt::VeryLongInt(unsigned long long number) {
 }
 
 VeryLongInt::VeryLongInt(const std::string &number) {
-	//TODO
+    //TODO
     char *
 
 }
 
 size_t VeryLongInt::numberOfBinaryDigits() const {
-	return 0; //TODO
+    return 0; //TODO
 }
 
 bool VeryLongInt::isValid() const {
@@ -58,31 +58,31 @@ VeryLongInt & VeryLongInt::operator=(unsigned long long) {
 }
 
 VeryLongInt & VeryLongInt::operator+=(const VeryLongInt &) {
-	return *this; //TODO
+    return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator-=(const VeryLongInt &) {
-	return *this; //TODO
+    return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator*=(const VeryLongInt &) {
-	return *this; //TODO
+    return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator/=(const VeryLongInt &) {
-	return *this; //TODO
+    return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator%=(const VeryLongInt &) {
-	return *this; //TODO
+    return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator<<=(unsigned long long) {
-	return *this; //TODO
+    return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator>>=(unsigned long long) {
-	return *this; //TODO
+    return *this; //TODO
 }
 
 VeryLongInt operator+(const VeryLongInt &, const VeryLongInt &) {
