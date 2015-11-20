@@ -4,18 +4,19 @@
 
 VeryLongInt VeryLongInt::nan = VeryLongInt();
 
-VeryLongInt::VeryLongInt() {
+VeryLongInt::VeryLongInt()
+	: isNaN(false) {
 	bitRep.push_back(0);
-	isNaN = false;
 }
 
-VeryLongInt::VeryLongInt(const VeryLongInt &source) {
-	bitRep = source.bitRep;
-	isNaN = source.isNaN;
+VeryLongInt::VeryLongInt(const VeryLongInt &source)
+	: bitRep(source.bitRep),
+	  isNaN(source.isNaN) {
 }
 
-VeryLongInt::VeryLongInt(VeryLongInt &&) {
-	//TODO
+VeryLongInt::VeryLongInt(VeryLongInt &&source)
+	: bitRep(std::move(source.bitRep)),
+	  isNaN(std::move(source.isNaN)) {
 }
 
 VeryLongInt::VeryLongInt(int number) {
@@ -44,7 +45,6 @@ VeryLongInt::VeryLongInt(unsigned number) {
 }
 
 VeryLongInt::VeryLongInt(unsigned long long number) {
-	//TODO
 	isNaN = false;
 	for ( ; number > 0; number /= 2) {
 		bitRep.push_back(number % 2);

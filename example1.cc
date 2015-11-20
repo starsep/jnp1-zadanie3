@@ -3,57 +3,57 @@
 #include <iostream>
 
 int main() {
-    {
-        VeryLongInt x = 1;
-        x /= 0;
-        assert(!x.isValid());
-    }
+	{
+		VeryLongInt x = 1;
+		x /= 0;
+		assert(!x.isValid());
+	}
 
-    {
-        VeryLongInt x = 100;
-        x -= 101;
-        assert(!x.isValid());
-    }
+	{
+		VeryLongInt x = 100;
+		x -= 101;
+		assert(!x.isValid());
+	}
 
-    {
-        VeryLongInt x = 23;
-        VeryLongInt y = x;
-        assert(x == y);
-    }
+	{
+		VeryLongInt x = 23;
+		VeryLongInt y = x;
+		assert(x == y);
+	}
 
-    {
-        VeryLongInt x = 23;
-        VeryLongInt y = 32;
-        x = y;
-        assert(x == y);
-    }
+	{
+		VeryLongInt x = 23;
+		VeryLongInt y = 32;
+		x = y;
+		assert(x == y);
+	}
 
-    {
-        VeryLongInt x = 23;
-        VeryLongInt y = 32;
-        assert(y > x);
-    }
+	{
+		VeryLongInt x = 23;
+		VeryLongInt y = 32;
+		assert(y > x);
+	}
 
-    {
-        VeryLongInt x = 23;
-        VeryLongInt y = 32;
-        assert(y >= x);
-    }
+	{
+		VeryLongInt x = 23;
+		VeryLongInt y = 32;
+		assert(y >= x);
+	}
 
-    {
-        VeryLongInt x = NaN();
-        assert(!x.isValid());
-    }
+	{
+		VeryLongInt x = NaN();
+		assert(!x.isValid());
+	}
 
-    {
-        VeryLongInt x = 10;
-        if (x)
-            assert(1);
-        else
-            assert(0);
-    }
+	{
+		VeryLongInt x = 10;
+		if (x)
+			assert(1);
+		else
+			assert(0);
+	}
 
-    {
+	{
 		VeryLongInt x = 1;
 		x <<= 123;
 		x >>= 120;
@@ -138,5 +138,5 @@ int main() {
 		VeryLongInt z = x * y;
 
 	}
-    return 0;
+	return 0;
 }
