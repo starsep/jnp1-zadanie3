@@ -131,56 +131,56 @@ VeryLongInt & VeryLongInt::operator>>=(unsigned long long) {
     return *this; //TODO
 }
 
-const VeryLongInt operator+(const VeryLongInt &, const VeryLongInt &) {
-    return VeryLongInt(); //TODO
+const VeryLongInt operator+(const VeryLongInt &x, const VeryLongInt &y) {
+    return VeryLongInt(x) += y;
 }
 
-const VeryLongInt operator-(const VeryLongInt &, const VeryLongInt &) {
-    return VeryLongInt(); //TODO
+const VeryLongInt operator-(const VeryLongInt &x, const VeryLongInt &y) {
+	return VeryLongInt(x) -= y;
 }
 
-const VeryLongInt operator*(const VeryLongInt &, const VeryLongInt &) {
-    return VeryLongInt(); //TODO
+const VeryLongInt operator*(const VeryLongInt &x, const VeryLongInt &y) {
+	return VeryLongInt(x) *= y;
 }
 
-const VeryLongInt operator/(const VeryLongInt &, const VeryLongInt &) {
-    return VeryLongInt(); //TODO
+const VeryLongInt operator/(const VeryLongInt &x, const VeryLongInt &y) {
+	return VeryLongInt(x) /= y;
 }
 
-const VeryLongInt operator%(const VeryLongInt &, const VeryLongInt &) {
-    return VeryLongInt(); //TODO
+const VeryLongInt operator%(const VeryLongInt &x, const VeryLongInt &y) {
+	return VeryLongInt(x) %= y;
 }
 
-const VeryLongInt operator<<(const VeryLongInt &, unsigned long long) {
-    return VeryLongInt(); //TODO
+const VeryLongInt operator<<(const VeryLongInt &x, unsigned long long y) {
+    return VeryLongInt(x) <<= y;
 }
 
-const VeryLongInt operator>>(const VeryLongInt &, unsigned long long) {
-    return VeryLongInt(); //TODO
+const VeryLongInt operator>>(const VeryLongInt &x, unsigned long long y) {
+    return VeryLongInt(x) >>= y;
 }
 
 bool operator==(const VeryLongInt &, const VeryLongInt &) {
     return false; //TODO
 }
 
-bool operator!=(const VeryLongInt &, const VeryLongInt &) {
-    return false; //TODO
+bool operator!=(const VeryLongInt &x, const VeryLongInt &y) {
+    return !(x == y);
 }
 
 bool operator<(const VeryLongInt &, const VeryLongInt &) {
-    return false; //TODO
+	return false; //TODO
 }
 
-bool operator<=(const VeryLongInt &, const VeryLongInt &) {
-    return false; //TODO
+bool operator<=(const VeryLongInt &x, const VeryLongInt &y) {
+    return (x < y) || (x == y);
 }
 
-bool operator>(const VeryLongInt &, const VeryLongInt &) {
-    return false; //TODO
+bool operator>(const VeryLongInt &x, const VeryLongInt &y) {
+    return !(x <= y);
 }
 
-bool operator>=(const VeryLongInt &, const VeryLongInt &) {
-    return false; //TODO
+bool operator>=(const VeryLongInt &x, const VeryLongInt &y) {
+    return !(x < y);
 }
 
 std::ostream & operator<<(std::ostream &ostream, const VeryLongInt &) {
@@ -202,7 +202,7 @@ const VeryLongInt & NaN() {
 }
 
 VeryLongInt::~VeryLongInt() {
-
+	//TODO
 }
 
 
