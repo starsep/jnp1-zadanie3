@@ -60,17 +60,17 @@ public:
 	VeryLongInt & operator>>=(unsigned long long); //
 
 	friend const VeryLongInt operator+(const VeryLongInt &, const VeryLongInt &);
-	friend const VeryLongInt operator-(const VeryLongInt &, const VeryLongInt &); //
+	friend const VeryLongInt operator-(const VeryLongInt &, const VeryLongInt &);
 	friend const VeryLongInt operator*(const VeryLongInt &, const VeryLongInt &);
-	friend const VeryLongInt operator/(const VeryLongInt &, const VeryLongInt &); //
-	friend const VeryLongInt operator%(const VeryLongInt &, const VeryLongInt &); //
+	friend const VeryLongInt operator/(const VeryLongInt &, const VeryLongInt &);
+	friend const VeryLongInt operator%(const VeryLongInt &, const VeryLongInt &);
 	friend const VeryLongInt operator<<(const VeryLongInt &, unsigned long long);
-	friend const VeryLongInt operator>>(const VeryLongInt &, unsigned long long); //
+	friend const VeryLongInt operator>>(const VeryLongInt &, unsigned long long);
 
 	friend bool operator==(const VeryLongInt &, const VeryLongInt &);
-	friend bool operator!=(const VeryLongInt &, const VeryLongInt &); //
-	friend bool operator<(const VeryLongInt &, const VeryLongInt &); //
-	friend bool operator<=(const VeryLongInt &, const VeryLongInt &); //
+	friend bool operator!=(const VeryLongInt &, const VeryLongInt &);
+	friend bool operator<(const VeryLongInt &, const VeryLongInt &);
+	friend bool operator<=(const VeryLongInt &, const VeryLongInt &);
 	friend bool operator>(const VeryLongInt &, const VeryLongInt &);
 	friend bool operator>=(const VeryLongInt &, const VeryLongInt &);
 

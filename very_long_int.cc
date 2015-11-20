@@ -76,7 +76,7 @@ size_t VeryLongInt::numberOfBinaryDigits() const {
 }
 
 bool VeryLongInt::isValid() const {
-	return true;
+	return !isNaN;
 }
 
 VeryLongInt::operator bool() const {
