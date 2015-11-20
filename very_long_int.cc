@@ -5,17 +5,17 @@
 VeryLongInt VeryLongInt::nan = VeryLongInt();
 
 VeryLongInt::VeryLongInt() {
-    bitRep.push_back(0);
-    isNaN = false;
+	bitRep.push_back(0);
+	isNaN = false;
 }
 
 VeryLongInt::VeryLongInt(const VeryLongInt &source) {
-    bitRep = source.bitRep;
-    isNaN = source.isNaN;
+	bitRep = source.bitRep;
+	isNaN = source.isNaN;
 }
 
 VeryLongInt::VeryLongInt(VeryLongInt &&) {
-    //TODO
+	//TODO
 }
 
 VeryLongInt::VeryLongInt(int number) {
@@ -40,20 +40,20 @@ VeryLongInt::VeryLongInt(long long number) {
 }
 
 VeryLongInt::VeryLongInt(unsigned number) {
-    VeryLongInt(static_cast<unsigned long long>(number));
+	VeryLongInt(static_cast<unsigned long long>(number));
 }
 
 VeryLongInt::VeryLongInt(unsigned long long number) {
-    //TODO
-    isNaN = false;
-    for ( ; number > 0; number /= 2) {
-        bitRep.push_back(number % 2);
-    }
-    //std::reverse(bitRep.begin(), bitRep.end());
+	//TODO
+	isNaN = false;
+	for ( ; number > 0; number /= 2) {
+		bitRep.push_back(number % 2);
+	}
+	//std::reverse(bitRep.begin(), bitRep.end());
 }
 
 VeryLongInt::VeryLongInt(const std::string &number) {
-    //TODO
+	//TODO
 }
 
 VeryLongInt::VeryLongInt(const char *number) {
@@ -72,19 +72,19 @@ bool VeryLongInt::isZero() const {
 }
 
 size_t VeryLongInt::numberOfBinaryDigits() const {
-    return bitRep.size();
+	return bitRep.size();
 }
 
 bool VeryLongInt::isValid() const {
-    return true;
+	return true;
 }
 
 VeryLongInt::operator bool() const {
-    return isValid() && !isZero();
+	return isValid() && !isZero();
 }
 
 VeryLongInt& VeryLongInt::operator=(const VeryLongInt&) {
-    return *this; //TODO
+	return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator=(int) {
@@ -100,39 +100,39 @@ VeryLongInt & VeryLongInt::operator=(unsigned) {
 }
 
 VeryLongInt & VeryLongInt::operator=(unsigned long long) {
-    return *this; //TODO
+	return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator+=(const VeryLongInt &) {
-    return *this; //TODO
+	return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator-=(const VeryLongInt &) {
-    return *this; //TODO
+	return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator*=(const VeryLongInt &) {
-    return *this; //TODO
+	return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator/=(const VeryLongInt &) {
-    return *this; //TODO
+	return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator%=(const VeryLongInt &) {
-    return *this; //TODO
+	return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator<<=(unsigned long long) {
-    return *this; //TODO
+	return *this; //TODO
 }
 
 VeryLongInt & VeryLongInt::operator>>=(unsigned long long) {
-    return *this; //TODO
+	return *this; //TODO
 }
 
 const VeryLongInt operator+(const VeryLongInt &x, const VeryLongInt &y) {
-    return VeryLongInt(x) += y;
+	return VeryLongInt(x) += y;
 }
 
 const VeryLongInt operator-(const VeryLongInt &x, const VeryLongInt &y) {
@@ -152,19 +152,19 @@ const VeryLongInt operator%(const VeryLongInt &x, const VeryLongInt &y) {
 }
 
 const VeryLongInt operator<<(const VeryLongInt &x, unsigned long long y) {
-    return VeryLongInt(x) <<= y;
+	return VeryLongInt(x) <<= y;
 }
 
 const VeryLongInt operator>>(const VeryLongInt &x, unsigned long long y) {
-    return VeryLongInt(x) >>= y;
+	return VeryLongInt(x) >>= y;
 }
 
 bool operator==(const VeryLongInt &, const VeryLongInt &) {
-    return false; //TODO
+	return false; //TODO
 }
 
 bool operator!=(const VeryLongInt &x, const VeryLongInt &y) {
-    return !(x == y);
+	return !(x == y);
 }
 
 bool operator<(const VeryLongInt &, const VeryLongInt &) {
@@ -172,33 +172,33 @@ bool operator<(const VeryLongInt &, const VeryLongInt &) {
 }
 
 bool operator<=(const VeryLongInt &x, const VeryLongInt &y) {
-    return (x < y) || (x == y);
+	return (x < y) || (x == y);
 }
 
 bool operator>(const VeryLongInt &x, const VeryLongInt &y) {
-    return !(x <= y);
+	return !(x <= y);
 }
 
 bool operator>=(const VeryLongInt &x, const VeryLongInt &y) {
-    return !(x < y);
+	return !(x < y);
 }
 
 std::ostream & operator<<(std::ostream &ostream, const VeryLongInt &) {
-    return ostream; //TODO
+	return ostream; //TODO
 }
 
 const VeryLongInt & Zero() {
-    static const VeryLongInt zero = VeryLongInt();
-    return zero;
+	static const VeryLongInt zero = VeryLongInt();
+	return zero;
 }
 
 const VeryLongInt & VeryLongInt::getNaN() {
-    nan.makeNaN();
-    return nan;
+	nan.makeNaN();
+	return nan;
 }
 
 const VeryLongInt & NaN() {
-    return VeryLongInt::getNaN();
+	return VeryLongInt::getNaN();
 }
 
 VeryLongInt::~VeryLongInt() {
