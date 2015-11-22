@@ -35,10 +35,9 @@ VeryLongInt::VeryLongInt(unsigned long number) {
 VeryLongInt::VeryLongInt(long long number) {
 	if (number < 0) {
 		makeNaN();
+		return;
 	}
-	else {
-		VeryLongInt(static_cast<unsigned long long>(number));
-	}
+	VeryLongInt(static_cast<unsigned long long>(number));
 }
 
 VeryLongInt::VeryLongInt(unsigned number) {
@@ -107,6 +106,10 @@ VeryLongInt::VeryLongInt(const std::string &number) {
 }
 
 VeryLongInt::VeryLongInt(const char *number) {
+	if (number == nullptr) {
+		makeNaN();
+		return;
+	}
 	VeryLongInt(std::string(number));
 }
 
