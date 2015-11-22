@@ -83,8 +83,9 @@ int main() {
 */
 	{
 		VeryLongInt x("1234567890123456789012345678901234567890");
+		std::cout << x << std::endl;
 		//VeryLongInt z = x;
-		VeryLongInt y("777777777777777777777777777777777777777");
+		//VeryLongInt y("777777777777777777777777777777777777777");
 //		x = x + y;
 //		x -= y;
 //		assert(x == z);

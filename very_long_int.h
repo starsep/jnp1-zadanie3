@@ -15,7 +15,6 @@ private:
 	static const VeryLongInt & getNaN();
 	bool isZero() const;
 	void removeLeadingZeroes();
-
 public:
 
 	VeryLongInt();
