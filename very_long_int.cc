@@ -55,7 +55,6 @@ VeryLongInt::VeryLongInt(unsigned long long number) {
 }
 
 VeryLongInt::VeryLongInt(const std::string &number) {
-	//TODO: remove debug if working
 	bool onlyDigits = std::find_if_not(number.begin(), number.end(), [](char c) {
 		return std::isdigit(c);
 	}) == number.end();
@@ -73,15 +72,6 @@ VeryLongInt::VeryLongInt(const std::string &number) {
 		c -= '0';
 	});
 
-	/*auto debug = [copy, &number] {
-		for (size_t i = 0; i < number.size(); i++) {
-			std::cerr << int(copy[i]);
-		}
-		std::cerr << "\n";
-	};
-
-	debug();*/
-
 	char *lastDigit = copy + number.size() - 1;
 	auto nonZero = [](char c) {
 		return c != '\0';
@@ -95,7 +85,6 @@ VeryLongInt::VeryLongInt(const std::string &number) {
 			rest = c % 2;
 			c /= 2;
 		});
-		//debug();
 		firstNonZeroIndex = std::find_if(copy + firstNonZeroIndex, copy + number.size(), nonZero) - copy;
 	}
 	isNaN = false;
