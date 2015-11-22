@@ -351,6 +351,10 @@ std::ostream &operator<<(std::ostream &ostream, const VeryLongInt &number) {
 		ostream << "NaN";
 		return ostream;
 	}
+	if(number.isZero()) {
+		ostream << '0';
+		return ostream;
+	}
 	std::string convertedToDecimal;
 	std::string powerOf2;
 	powerOf2 += char(1);

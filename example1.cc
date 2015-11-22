@@ -4,6 +4,9 @@
 
 int main() {
 	{
+		std::cerr << "ZERO: " << Zero() << "\n";
+	}
+	{
 		VeryLongInt x = 1;
 		x /= 0;
 		assert(!x.isValid());
