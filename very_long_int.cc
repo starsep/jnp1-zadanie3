@@ -114,10 +114,8 @@ VeryLongInt::VeryLongInt(const char *number) {
 }
 
 void VeryLongInt::makeNaN() {
-	if (!isNaN) {
-		isNaN = true;
-		bitRep.clear();
-	}
+	isNaN = true;
+	bitRep.clear();
 }
 
 bool VeryLongInt::isZero() const {
