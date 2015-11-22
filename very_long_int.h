@@ -79,7 +79,7 @@ public:
 	friend const VeryLongInt & Zero();
 	friend const VeryLongInt & NaN();
 
-	~VeryLongInt();
+	~VeryLongInt() = default;
 };
 
 const VeryLongInt & Zero();

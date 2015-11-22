@@ -274,8 +274,4 @@ const VeryLongInt &NaN() {
 	return VeryLongInt::getNaN();
 }
 
-VeryLongInt::~VeryLongInt() {
-	//TODO
-}
-
 
