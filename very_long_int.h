@@ -17,7 +17,6 @@ private:
 	bool isZero() const;
 	void removeLeadingZeroes();
 public:
-
 	VeryLongInt();
 	VeryLongInt(const VeryLongInt &);
 	VeryLongInt(VeryLongInt &&);
