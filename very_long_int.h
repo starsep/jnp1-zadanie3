@@ -20,7 +20,7 @@ public:
 	VeryLongInt();
 	VeryLongInt(const VeryLongInt &);
 	VeryLongInt(VeryLongInt &&);
-	VeryLongInt(const char *);
+	explicit VeryLongInt(const char *);
 	VeryLongInt(const std::string &);
 	VeryLongInt(bool) = delete;
 	VeryLongInt(char) = delete;

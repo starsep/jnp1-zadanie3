@@ -134,24 +134,46 @@ VeryLongInt::operator bool() const {
 	return isValid() && !isZero();
 }
 
-VeryLongInt &VeryLongInt::operator=(const VeryLongInt &) {
-	return *this; //TODO
+VeryLongInt &VeryLongInt::operator=(const VeryLongInt &source) {
+	isNaN = source.isNaN;
+	bitRep = source.bitRep;
+	return *this;
 }
 
-VeryLongInt &VeryLongInt::operator=(int) {
-	return *this; //TODO
+VeryLongInt &VeryLongInt::operator=(int source) {
+	return operator=(static_cast<const VeryLongInt &>(source));
 }
 
-VeryLongInt &VeryLongInt::operator=(long long) {
-	return *this; //TODO
+VeryLongInt &VeryLongInt::operator=(long source) {
+	return operator=(static_cast<const VeryLongInt &>(source));
 }
 
-VeryLongInt &VeryLongInt::operator=(unsigned) {
-	return *this; //TODO
+VeryLongInt &VeryLongInt::operator=(long long source) {
+	return operator=(static_cast<const VeryLongInt &>(source));
 }
 
-VeryLongInt &VeryLongInt::operator=(unsigned long long) {
-	return *this; //TODO
+VeryLongInt &VeryLongInt::operator=(unsigned source) {
+	return operator=(static_cast<const VeryLongInt &>(source));
+}
+
+VeryLongInt &VeryLongInt::operator=(unsigned long source) {
+	return operator=(static_cast<const VeryLongInt &>(source));
+}
+
+VeryLongInt &VeryLongInt::operator=(unsigned long long source) {
+	return operator=(static_cast<const VeryLongInt &>(source));
+}
+
+VeryLongInt &VeryLongInt::operator=(const char *source) {
+	if(source == nullptr) {
+		makeNaN();
+		return *this;
+	}
+	return operator=(static_cast<const VeryLongInt &>(std::string(source)));
+}
+
+VeryLongInt &VeryLongInt::operator=(const std::string &source) {
+	return operator=(static_cast<const VeryLongInt &>(source));
 }
 
 VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &) {
