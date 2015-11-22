@@ -220,7 +220,7 @@ VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
 	}
 	std::vector<bool> copy = bitRep;
 	VeryLongInt numberCopy = number;
-	*this = 0;
+	*this = Zero();
 	for (bool powerInSum : copy) {
 		if (powerInSum) {
 			*this += numberCopy;
