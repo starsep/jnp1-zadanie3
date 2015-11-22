@@ -8,11 +8,12 @@
 
 class VeryLongInt {
 private:
-	std::vector<bool> bitRep;
 	static VeryLongInt nan;
+	std::vector<bool> bitRep;
 	bool isNaN;
-	void makeNaN();
+
 	static const VeryLongInt & getNaN();
+	void makeNaN();
 	bool isZero() const;
 	void removeLeadingZeroes();
 public:
