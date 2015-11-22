@@ -15,7 +15,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cff60740-94fb-4fed-a60f-4545598f67a9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example1.cc" afterPath="$PROJECT_DIR$/example1.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/very_long_int.cc" afterPath="$PROJECT_DIR$/very_long_int.cc" />
     </list>
     <ignored path="jnp1-zadanie3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +38,8 @@
       <file leaf-file-name="example1.cc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example1.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33620688">
-              <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.30172414">
+              <caret line="138" column="36" selection-start-line="138" selection-start-column="36" selection-end-line="138" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -92,8 +91,8 @@
         <option value="$PROJECT_DIR$/bad_example5.cc" />
         <option value="$PROJECT_DIR$/bad_example6.cc" />
         <option value="$PROJECT_DIR$/very_long_int.h" />
-        <option value="$PROJECT_DIR$/example1.cc" />
         <option value="$PROJECT_DIR$/very_long_int.cc" />
+        <option value="$PROJECT_DIR$/example1.cc" />
       </list>
     </option>
   </component>
@@ -714,8 +713,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example1.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33620688">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.30172414">
+          <caret line="138" column="36" selection-start-line="138" selection-start-column="36" selection-end-line="138" selection-end-column="36" />
           <folding />
         </state>
       </provider>
