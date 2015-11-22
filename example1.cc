@@ -63,7 +63,7 @@ int main() {
 		assert(8 == x);
 	}*/
 
-	//TODO: *= operator and %= operator needed
+	//TODO: %= operator needed
 	/*
 	{
 		VeryLongInt x = 1;
@@ -77,16 +77,16 @@ int main() {
 		assert(x == 0);
 	}
 
-	//TODO: *= operator needed
-	/*
 	{
 		const int N = 100;
 		VeryLongInt x = 1;
-		for (int i = 1; i < N; ++i)
+		for (int i = 1; i < N; ++i) {
 			x *= 2;
+			//std::cerr << x << "\n";
+		}
 		assert(x.numberOfBinaryDigits() == N);
 	}
-	*/
+
 
 	//TODO: -= operator needed
 	/*{
@@ -120,16 +120,15 @@ int main() {
 		assert(z == x - y);
 	}*/
 
-	//TODO: *= operator needed
-	/*
+
 	{
 		VeryLongInt x("10000000000");
 		VeryLongInt y("100000000000");
 		VeryLongInt z("1000000000000000000000");
 		assert(z == x * y);
-	}*/
+	}
 
-	//TODO: *= operator and /= operator needed
+	//TODO: /= operator needed
 	/*
 	{
 		const int N = 1000;
@@ -147,13 +146,12 @@ int main() {
 		assert(NaN().numberOfBinaryDigits() == 0);
 	}
 
-	//TODO: *= operator needed
-	/*
+
 	{
 		VeryLongInt x(1);
 		VeryLongInt y(2);
 		VeryLongInt z = x * y;
-
-	}*/
+		assert(z == y);
+	}
 	return 0;
 }

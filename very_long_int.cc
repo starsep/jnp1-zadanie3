@@ -49,7 +49,7 @@ VeryLongInt::VeryLongInt(unsigned long long number) {
 	for (; number > 0; number /= 2) {
 		bitRep.push_back(number % 2);
 	}
-	if(bitRep.empty()) { //0
+	if (bitRep.empty()) { //0
 		bitRep.push_back(0);
 	}
 }
@@ -218,8 +218,16 @@ VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
 	if (isZero()) {
 		return *this;
 	}
-
-	return *this; //TODO
+	std::vector<bool> copy = bitRep;
+	VeryLongInt numberCopy = number;
+	*this = 0;
+	for (bool powerInSum : copy) {
+		if (powerInSum) {
+			*this += numberCopy;
+		}
+		numberCopy <<= 1;
+	}
+	return *this;
 }
 
 VeryLongInt &VeryLongInt::operator/=(const VeryLongInt &number) {
