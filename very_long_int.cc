@@ -54,10 +54,12 @@ VeryLongInt::VeryLongInt(unsigned long long number) {
 }
 
 VeryLongInt::VeryLongInt(const std::string &number) {
-	bool isCorrectNumber = !number.empty() &&
-						   std::find_if_not(number.begin(), number.end(), [](char c) {
-							   return std::isdigit(c);
-						   }) == number.end();
+	//TODO: remove debug if working
+	bool onlyDigits = std::find_if_not(number.begin(), number.end(), [](char c) {
+		return std::isdigit(c);
+	}) == number.end();
+	bool isCorrectNumber = !number.empty() && onlyDigits;
+
 	if (!isCorrectNumber) {
 		makeNaN();
 		return;
@@ -71,8 +73,8 @@ VeryLongInt::VeryLongInt(const std::string &number) {
 		c -= '0';
 	});
 
-	auto debug = [copy, number] {
-		for(size_t i = 0; i < number.size(); i++) {
+	auto debug = [copy, &number] {
+		for (size_t i = 0; i < number.size(); i++) {
 			std::cerr << int(copy[i]);
 		}
 		std::cerr << "\n";
@@ -87,7 +89,7 @@ VeryLongInt::VeryLongInt(const std::string &number) {
 	size_t firstNonZeroIndex = std::find_if(copy, copy + number.size(), nonZero) - copy;
 	while (firstNonZeroIndex != number.size()) {
 		bitRep.push_back(*lastDigit % 2);
-		int rest = 0;
+		bool rest = 0;
 		std::for_each(copy + firstNonZeroIndex, endOfCopy, [&rest](char &c) {
 			c += rest * 10;
 			rest = c % 2;
