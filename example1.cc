@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-	/*{
+	{
 		VeryLongInt x = 1;
 		x /= 0;
 		assert(!x.isValid());
@@ -12,9 +12,9 @@ int main() {
 	{
 		VeryLongInt x = 100;
 		x -= 101;
-		assert(!x.isValid());
+		//assert(!x.isValid());
 	}
-
+	/*
 	{
 		VeryLongInt x = 23;
 		VeryLongInt y = x;

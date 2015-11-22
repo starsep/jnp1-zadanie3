@@ -49,7 +49,9 @@ VeryLongInt::VeryLongInt(unsigned long long number) {
 	for (; number > 0; number /= 2) {
 		bitRep.push_back(number % 2);
 	}
-	//std::reverse(bitRep.begin(), bitRep.end());
+	if(bitRep.empty()) { //0
+		bitRep.push_back(0);
+	}
 }
 
 VeryLongInt::VeryLongInt(const std::string &number) {
@@ -200,7 +202,7 @@ VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &number) {
 }
 
 VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &number) {
-	if (isNaN || number.isNaN || number > *this) {
+	if (isNaN || number.isNaN || number > (*this)) {
 		makeNaN();
 		return *this;
 	}
@@ -318,12 +320,12 @@ bool operator<(const VeryLongInt &x, const VeryLongInt &y) {
 	if (x.bitRep.size() != y.bitRep.size()) {
 		return x.bitRep.size() < y.bitRep.size();
 	}
-	for (size_t i = x.bitRep.size() - 1; i >= 0; i--) {
+	for (size_t i = x.bitRep.size() - 1; i > 0; i--) {
 		if (x.bitRep[i] < y.bitRep[i]) {
 			return true;
 		}
 	}
-	return false;
+	return x.bitRep[0] < y.bitRep[0];
 }
 
 bool operator<=(const VeryLongInt &x, const VeryLongInt &y) {
@@ -352,8 +354,7 @@ std::ostream &operator<<(std::ostream &ostream, const VeryLongInt &number) {
 		ostream << "NaN";
 		return ostream;
 	}
-	std::string convertedToDecimal = "0";
-	convertedToDecimal[0] = '\0';
+	std::string convertedToDecimal;
 	std::string powerOf2;
 	powerOf2 += char(1);
 	auto multiplyBy2 = [](std::string &decimal) {
