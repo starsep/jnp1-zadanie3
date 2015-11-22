@@ -351,7 +351,7 @@ std::ostream &operator<<(std::ostream &ostream, const VeryLongInt &number) {
 		ostream << "NaN";
 		return ostream;
 	}
-	if(number.isZero()) {
+	if (number.isZero()) {
 		ostream << '0';
 		return ostream;
 	}
