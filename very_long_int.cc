@@ -165,7 +165,7 @@ VeryLongInt &VeryLongInt::operator=(unsigned long long source) {
 }
 
 VeryLongInt &VeryLongInt::operator=(const char *source) {
-	if(source == nullptr) {
+	if (source == nullptr) {
 		makeNaN();
 		return *this;
 	}
@@ -177,22 +177,22 @@ VeryLongInt &VeryLongInt::operator=(const std::string &source) {
 }
 
 VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &number) {
-	if(isNaN || number.isNaN) {
+	if (isNaN || number.isNaN) {
 		makeNaN();
 		return *this;
 	}
 	const std::vector<bool> &numberRep = number.bitRep;
 	bitRep.resize(std::max(bitRep.size(), numberRep.size()) + 1);
 	bool rest = false;
-	for(size_t i = 0; i < numberRep.size(); i++) {
+	for (size_t i = 0; i < numberRep.size(); i++) {
 		char sum = bitRep[i];
 		sum += rest;
 		sum += numberRep[i];
 		bitRep[i] = sum % 2;
 		rest = sum / 2;
 	}
-	if(rest) {
-		if(bitRep[numberRep.size()]) {
+	if (rest) {
+		if (bitRep[numberRep.size()]) {
 			bitRep[numberRep.size()] = false;
 			bitRep[numberRep.size() + 1] = true;
 		}
@@ -204,27 +204,68 @@ VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &number) {
 	return *this;
 }
 
-VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &) {
+VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &number) {
+	if (isNaN || number.isNaN || number > *this) {
+		makeNaN();
+		return *this;
+	}
+
 	return *this; //TODO
 }
 
-VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &) {
+VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
+	if (isNaN || number.isNaN) {
+		makeNaN();
+		return *this;
+	}
+	if (isZero()) {
+		return *this;
+	}
+
 	return *this; //TODO
 }
 
-VeryLongInt &VeryLongInt::operator/=(const VeryLongInt &) {
+VeryLongInt &VeryLongInt::operator/=(const VeryLongInt &number) {
+	if (isNaN || !number) {
+		makeNaN();
+		return *this;
+	}
+	if (isZero()) {
+		return *this;
+	}
+
 	return *this; //TODO
 }
 
-VeryLongInt &VeryLongInt::operator%=(const VeryLongInt &) {
+VeryLongInt &VeryLongInt::operator%=(const VeryLongInt &number) {
+	if (isNaN || !number) {
+		makeNaN();
+		return *this;
+	}
+	if (isZero()) {
+		return *this;
+	}
+
 	return *this; //TODO
 }
 
-VeryLongInt &VeryLongInt::operator<<=(unsigned long long) {
-	return *this; //TODO
+VeryLongInt &VeryLongInt::operator<<=(unsigned long long number) {
+	if (isNaN || isZero()) {
+		return *this;
+	}
+	const std::vector<bool> copy = bitRep;
+	bitRep.clear();
+	bitRep.resize(copy.size() + number);
+	for (size_t i = 0; i < copy.size(); i++) {
+		bitRep[number + i] = copy[i];
+	}
+	return *this;
 }
 
 VeryLongInt &VeryLongInt::operator>>=(unsigned long long) {
+	if (isNaN || isZero()) {
+		return *this;
+	}
 	return *this; //TODO
 }
 
@@ -256,27 +297,58 @@ const VeryLongInt operator>>(const VeryLongInt &x, unsigned long long y) {
 	return VeryLongInt(x) >>= y;
 }
 
-bool operator==(const VeryLongInt &, const VeryLongInt &) {
-	return false; //TODO
+bool operator==(const VeryLongInt &x, const VeryLongInt &y) {
+	if (x.isNaN || y.isNaN || x.bitRep.size() != y.bitRep.size()) {
+		return false;
+	}
+	for (size_t i = 0; i < x.bitRep.size(); i++) {
+		if (x.bitRep[i] != y.bitRep[i]) {
+			return false;
+		}
+	}
+	return true;
 }
 
 bool operator!=(const VeryLongInt &x, const VeryLongInt &y) {
+	if (x.isNaN || y.isNaN) {
+		return false;
+	}
 	return !(x == y);
 }
 
-bool operator<(const VeryLongInt &, const VeryLongInt &) {
-	return false; //TODO
+bool operator<(const VeryLongInt &x, const VeryLongInt &y) {
+	if (x.isNaN || y.isNaN) {
+		return false;
+	}
+	if (x.bitRep.size() != y.bitRep.size()) {
+		return x.bitRep.size() < y.bitRep.size();
+	}
+	for(size_t i = x.bitRep.size() - 1; i >= 0; i--) {
+		if(x.bitRep[i] < y.bitRep[i]) {
+			return true;
+		}
+	}
+	return false;
 }
 
 bool operator<=(const VeryLongInt &x, const VeryLongInt &y) {
+	if (x.isNaN || y.isNaN) {
+		return false;
+	}
 	return (x < y) || (x == y);
 }
 
 bool operator>(const VeryLongInt &x, const VeryLongInt &y) {
+	if (x.isNaN || y.isNaN) {
+		return false;
+	}
 	return !(x <= y);
 }
 
 bool operator>=(const VeryLongInt &x, const VeryLongInt &y) {
+	if (x.isNaN || y.isNaN) {
+		return false;
+	}
 	return !(x < y);
 }
 
@@ -299,7 +371,7 @@ const VeryLongInt &NaN() {
 }
 
 void VeryLongInt::removeLeadingZeroes() {
-	while(bitRep.size() > 1 && !bitRep.back()) {
+	while (bitRep.size() > 1 && !bitRep.back()) {
 		bitRep.pop_back();
 	}
 }
