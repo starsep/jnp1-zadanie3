@@ -6,30 +6,30 @@
 VeryLongInt VeryLongInt::nan = VeryLongInt();
 
 VeryLongInt::VeryLongInt()
-		: isNaN(false) {
+	: isNaN(false) {
 	bitRep.push_back(0);
 }
 
 VeryLongInt::VeryLongInt(const VeryLongInt &source)
-		: bitRep(source.bitRep),
-		  isNaN(source.isNaN) {
+	: bitRep(source.bitRep),
+	  isNaN(source.isNaN) {
 }
 
 VeryLongInt::VeryLongInt(VeryLongInt &&source)
-		: bitRep(std::move(source.bitRep)),
-		  isNaN(std::move(source.isNaN)) {
+	: bitRep(std::move(source.bitRep)),
+	  isNaN(std::move(source.isNaN)) {
 }
 
 VeryLongInt::VeryLongInt(int number) :
-		VeryLongInt(static_cast<long long>(number)) {
+	VeryLongInt(static_cast<long long>(number)) {
 }
 
 VeryLongInt::VeryLongInt(long number) :
-		VeryLongInt(static_cast<long long>(number)) {
+	VeryLongInt(static_cast<long long>(number)) {
 }
 
 VeryLongInt::VeryLongInt(unsigned long number) :
-		VeryLongInt(static_cast<unsigned long long>(number)) {
+	VeryLongInt(static_cast<unsigned long long>(number)) {
 }
 
 VeryLongInt::VeryLongInt(long long number) {
@@ -41,7 +41,7 @@ VeryLongInt::VeryLongInt(long long number) {
 }
 
 VeryLongInt::VeryLongInt(unsigned number) :
-		VeryLongInt(static_cast<unsigned long long>(number)) {
+	VeryLongInt(static_cast<unsigned long long>(number)) {
 }
 
 VeryLongInt::VeryLongInt(unsigned long long number) {
