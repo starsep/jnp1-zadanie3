@@ -166,11 +166,11 @@ VeryLongInt &VeryLongInt::operator=(const char *source) {
 		makeNaN();
 		return *this;
 	}
-	return operator=(static_cast<const VeryLongInt &>(std::string(source)));
+	return operator=(VeryLongInt(std::string(source)));
 }
 
 VeryLongInt &VeryLongInt::operator=(const std::string &source) {
-	return operator=(static_cast<const VeryLongInt &>(source));
+	return operator=(VeryLongInt(source));
 }
 
 VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &number) {

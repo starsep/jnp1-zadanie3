@@ -21,7 +21,7 @@ public:
 	VeryLongInt(const VeryLongInt &);
 	VeryLongInt(VeryLongInt &&);
 	explicit VeryLongInt(const char *);
-	VeryLongInt(const std::string &);
+	explicit VeryLongInt(const std::string &);
 	VeryLongInt(bool) = delete;
 	VeryLongInt(char) = delete;
 	VeryLongInt(char16_t) = delete;
