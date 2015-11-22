@@ -176,8 +176,32 @@ VeryLongInt &VeryLongInt::operator=(const std::string &source) {
 	return operator=(static_cast<const VeryLongInt &>(source));
 }
 
-VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &) {
-	return *this; //TODO
+VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &number) {
+	if(isNaN || number.isNaN) {
+		makeNaN();
+		return *this;
+	}
+	const std::vector<bool> &numberRep = number.bitRep;
+	bitRep.resize(std::max(bitRep.size(), numberRep.size()) + 1);
+	bool rest = false;
+	for(size_t i = 0; i < numberRep.size(); i++) {
+		char sum = bitRep[i];
+		sum += rest;
+		sum += numberRep[i];
+		bitRep[i] = sum % 2;
+		rest = sum / 2;
+	}
+	if(rest) {
+		if(bitRep[numberRep.size()]) {
+			bitRep[numberRep.size()] = false;
+			bitRep[numberRep.size() + 1] = true;
+		}
+		else {
+			bitRep[numberRep.size()] = true;
+		}
+	}
+	removeLeadingZeroes();
+	return *this;
 }
 
 VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &) {
@@ -274,4 +298,9 @@ const VeryLongInt &NaN() {
 	return VeryLongInt::getNaN();
 }
 
+void VeryLongInt::removeLeadingZeroes() {
+	while(bitRep.size() > 1 && !bitRep.back()) {
+		bitRep.pop_back();
+	}
+}
 

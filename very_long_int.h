@@ -14,6 +14,7 @@ private:
 	void makeNaN();
 	static const VeryLongInt & getNaN();
 	bool isZero() const;
+	void removeLeadingZeroes();
 
 public:
 
