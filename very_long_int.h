@@ -8,10 +8,12 @@
 
 class VeryLongInt {
 private:
+	//private variables
 	static VeryLongInt nan;
 	std::vector<bool> bitRep;
 	bool isNaN;
 
+	//private methods
 	static const VeryLongInt & getNaN();
 	void makeNaN();
 	bool isZero() const;
@@ -76,7 +78,7 @@ public:
 	//ostream operator
 	friend std::ostream & operator<<(std::ostream &, const VeryLongInt &);
 
-	//"singletons" functions
+	//"singleton" functions
 	friend const VeryLongInt & Zero();
 	friend const VeryLongInt & NaN();
 
@@ -84,9 +86,11 @@ public:
 	~VeryLongInt() = default;
 };
 
+//"singleton" functions
 const VeryLongInt & Zero();
 const VeryLongInt & NaN();
 
+//arithmetic operators
 const VeryLongInt operator+(const VeryLongInt &, const VeryLongInt &);
 const VeryLongInt operator-(const VeryLongInt &, const VeryLongInt &);
 const VeryLongInt operator*(const VeryLongInt &, const VeryLongInt &);
@@ -95,6 +99,7 @@ const VeryLongInt operator%(const VeryLongInt &, const VeryLongInt &);
 const VeryLongInt operator<<(const VeryLongInt &, unsigned long long);
 const VeryLongInt operator>>(const VeryLongInt &, unsigned long long);
 
+//comparision operators
 bool operator!=(const VeryLongInt &, const VeryLongInt &);
 bool operator<=(const VeryLongInt &, const VeryLongInt &);
 bool operator>(const VeryLongInt &, const VeryLongInt &);
