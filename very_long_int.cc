@@ -195,7 +195,18 @@ VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &number) {
 		makeNaN();
 		return *this;
 	}
-
+	const std::vector<bool> &numberRep = number.bitRep;
+	for (size_t i = numberRep.size() - 1; i >= 0; i--) {
+		if (numberRep[i]) {
+			size_t j = i;
+			while (!bitRep[j]) {
+				bitRep[j] = true;
+				j++;
+			}
+			bitRep[j] = false;
+		}
+	}
+	removeLeadingZeroes();
 	return *this; //TODO
 }
 
@@ -256,11 +267,22 @@ VeryLongInt &VeryLongInt::operator<<=(unsigned long long number) {
 	return *this;
 }
 
-VeryLongInt &VeryLongInt::operator>>=(unsigned long long) {
+VeryLongInt &VeryLongInt::operator>>=(unsigned long long number) {
 	if (isNaN || isZero()) {
 		return *this;
 	}
-	return *this; //TODO
+	for (size_t i = 0; i + number < bitRep.size(); i++) {
+		bitRep[i] = bitRep[i + number];
+	}
+	// Przesunięcie bitowe w prawo:
+	bitRep.resize(bitRep.size() - number);
+
+	/* Przesunięcie arytmetyczne w prawo:
+	for (size_t i = bitRep.size() - number; i < bitRep.size(); i++ {
+		bitRep[i] = true;
+	} */
+
+	return *this; //TODO: usunąć którąś wersję
 }
 
 const VeryLongInt operator+(const VeryLongInt &x, const VeryLongInt &y) {
@@ -419,4 +441,3 @@ void VeryLongInt::removeLeadingZeroes() {
 		bitRep.pop_back();
 	}
 }
-
