@@ -71,7 +71,7 @@ public:
 	VeryLongInt & operator<<=(unsigned long long);
 	VeryLongInt & operator>>=(unsigned long long); //
 
-	//comparision operators
+	//comparison operators
 	friend bool operator==(const VeryLongInt &, const VeryLongInt &);
 	friend bool operator<(const VeryLongInt &, const VeryLongInt &);
 
@@ -99,7 +99,7 @@ const VeryLongInt operator%(const VeryLongInt &, const VeryLongInt &);
 const VeryLongInt operator<<(const VeryLongInt &, unsigned long long);
 const VeryLongInt operator>>(const VeryLongInt &, unsigned long long);
 
-//comparision operators
+//comparison operators
 bool operator!=(const VeryLongInt &, const VeryLongInt &);
 bool operator<=(const VeryLongInt &, const VeryLongInt &);
 bool operator>(const VeryLongInt &, const VeryLongInt &);
