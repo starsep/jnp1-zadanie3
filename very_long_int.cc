@@ -274,15 +274,9 @@ VeryLongInt &VeryLongInt::operator>>=(unsigned long long number) {
 	for (size_t i = 0; i + number < bitRep.size(); i++) {
 		bitRep[i] = bitRep[i + number];
 	}
-	// Przesunięcie bitowe w prawo:
 	bitRep.resize(bitRep.size() - number);
 
-	/* Przesunięcie arytmetyczne w prawo:
-	for (size_t i = bitRep.size() - number; i < bitRep.size(); i++ {
-		bitRep[i] = true;
-	} */
-
-	return *this; //TODO: usunąć którąś wersję
+	return *this;
 }
 
 const VeryLongInt operator+(const VeryLongInt &x, const VeryLongInt &y) {
