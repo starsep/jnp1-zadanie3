@@ -22,10 +22,13 @@ public:
 	VeryLongInt(VeryLongInt &&);
 	explicit VeryLongInt(const char *);
 	explicit VeryLongInt(const std::string &);
-	VeryLongInt(bool) = delete;
-	VeryLongInt(char) = delete;
-	VeryLongInt(char16_t) = delete;
-	VeryLongInt(char32_t) = delete;
+	explicit VeryLongInt(bool) = delete;
+	explicit VeryLongInt(char) = delete;
+	explicit VeryLongInt(char16_t) = delete;
+	explicit VeryLongInt(char32_t) = delete;
+	explicit VeryLongInt(double) = delete;
+	explicit VeryLongInt(float) = delete;
+	explicit VeryLongInt(long double) = delete;
 	VeryLongInt(int);
 	VeryLongInt(long);
 	VeryLongInt(long long);
@@ -50,6 +53,9 @@ public:
 	VeryLongInt & operator=(char) = delete;
 	VeryLongInt & operator=(char16_t) = delete;
 	VeryLongInt & operator=(char32_t) = delete;
+	VeryLongInt & operator=(double) = delete;
+	VeryLongInt & operator=(float) = delete;
+	VeryLongInt & operator=(long double) = delete;
 
 	VeryLongInt & operator+=(const VeryLongInt &);
 	VeryLongInt & operator-=(const VeryLongInt &); //
