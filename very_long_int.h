@@ -67,10 +67,6 @@ public:
 
 	friend bool operator==(const VeryLongInt &, const VeryLongInt &);
 	friend bool operator<(const VeryLongInt &, const VeryLongInt &);
-	friend bool operator!=(const VeryLongInt &, const VeryLongInt &);
-	friend bool operator<=(const VeryLongInt &, const VeryLongInt &);
-	friend bool operator>(const VeryLongInt &, const VeryLongInt &);
-	friend bool operator>=(const VeryLongInt &, const VeryLongInt &);
 
 	friend std::ostream & operator<<(std::ostream &, const VeryLongInt &);
 
