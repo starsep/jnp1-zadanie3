@@ -303,13 +303,6 @@ bool operator==(const VeryLongInt &x, const VeryLongInt &y) {
 	return true;
 }
 
-bool operator!=(const VeryLongInt &x, const VeryLongInt &y) {
-	if (x.isNaN || y.isNaN) {
-		return false;
-	}
-	return !(x == y);
-}
-
 bool operator<(const VeryLongInt &x, const VeryLongInt &y) {
 	if (x.isNaN || y.isNaN) {
 		return false;
@@ -325,22 +318,29 @@ bool operator<(const VeryLongInt &x, const VeryLongInt &y) {
 	return x.bitRep[0] < y.bitRep[0];
 }
 
+bool operator!=(const VeryLongInt &x, const VeryLongInt &y) {
+	if (!x.isValid() || !y.isValid()) {
+		return false;
+	}
+	return !(x == y);
+}
+
 bool operator<=(const VeryLongInt &x, const VeryLongInt &y) {
-	if (x.isNaN || y.isNaN) {
+	if (!x.isValid() || !y.isValid()) {
 		return false;
 	}
 	return (x < y) || (x == y);
 }
 
 bool operator>(const VeryLongInt &x, const VeryLongInt &y) {
-	if (x.isNaN || y.isNaN) {
+	if (!x.isValid() || !y.isValid()) {
 		return false;
 	}
 	return !(x <= y);
 }
 
 bool operator>=(const VeryLongInt &x, const VeryLongInt &y) {
-	if (x.isNaN || y.isNaN) {
+	if (!x.isValid() || !y.isValid()) {
 		return false;
 	}
 	return !(x < y);

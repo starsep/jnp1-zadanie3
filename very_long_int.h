@@ -66,8 +66,8 @@ public:
 	VeryLongInt & operator>>=(unsigned long long); //
 
 	friend bool operator==(const VeryLongInt &, const VeryLongInt &);
-	friend bool operator!=(const VeryLongInt &, const VeryLongInt &);
 	friend bool operator<(const VeryLongInt &, const VeryLongInt &);
+	friend bool operator!=(const VeryLongInt &, const VeryLongInt &);
 	friend bool operator<=(const VeryLongInt &, const VeryLongInt &);
 	friend bool operator>(const VeryLongInt &, const VeryLongInt &);
 	friend bool operator>=(const VeryLongInt &, const VeryLongInt &);
@@ -90,5 +90,10 @@ const VeryLongInt operator/(const VeryLongInt &, const VeryLongInt &);
 const VeryLongInt operator%(const VeryLongInt &, const VeryLongInt &);
 const VeryLongInt operator<<(const VeryLongInt &, unsigned long long);
 const VeryLongInt operator>>(const VeryLongInt &, unsigned long long);
+
+bool operator!=(const VeryLongInt &, const VeryLongInt &);
+bool operator<=(const VeryLongInt &, const VeryLongInt &);
+bool operator>(const VeryLongInt &, const VeryLongInt &);
+bool operator>=(const VeryLongInt &, const VeryLongInt &);
 
 #endif //VERY_LONG_INT_H
