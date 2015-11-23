@@ -156,5 +156,9 @@ int main() {
 		VeryLongInt z = x * y;
 		assert(z == y);
 	}
+	{
+		short int y = 5;
+		VeryLongInt x(y);
+	}
 	return 0;
 }
