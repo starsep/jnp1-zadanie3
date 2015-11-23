@@ -17,6 +17,7 @@ private:
 	bool isZero() const;
 	void removeLeadingZeroes();
 public:
+	//constructors
 	VeryLongInt();
 	VeryLongInt(const VeryLongInt &);
 	VeryLongInt(VeryLongInt &&);
@@ -36,10 +37,12 @@ public:
 	VeryLongInt(unsigned long);
 	VeryLongInt(unsigned long long);
 
+	//const methods
 	size_t numberOfBinaryDigits() const;
 	bool isValid() const;
 	explicit operator bool() const;
 
+	//operators=
 	VeryLongInt & operator=(const VeryLongInt&);
 	VeryLongInt & operator=(int);
 	VeryLongInt & operator=(long);
@@ -57,6 +60,7 @@ public:
 	VeryLongInt & operator=(float) = delete;
 	VeryLongInt & operator=(long double) = delete;
 
+	//compound arithmetic operators
 	VeryLongInt & operator+=(const VeryLongInt &);
 	VeryLongInt & operator-=(const VeryLongInt &); //
 	VeryLongInt & operator*=(const VeryLongInt &);
@@ -65,14 +69,18 @@ public:
 	VeryLongInt & operator<<=(unsigned long long);
 	VeryLongInt & operator>>=(unsigned long long); //
 
+	//comparision operators
 	friend bool operator==(const VeryLongInt &, const VeryLongInt &);
 	friend bool operator<(const VeryLongInt &, const VeryLongInt &);
 
+	//ostream operator
 	friend std::ostream & operator<<(std::ostream &, const VeryLongInt &);
 
+	//"singletons" functions
 	friend const VeryLongInt & Zero();
 	friend const VeryLongInt & NaN();
 
+	//default destructor
 	~VeryLongInt() = default;
 };
 
