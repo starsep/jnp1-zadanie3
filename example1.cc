@@ -58,13 +58,12 @@ int main() {
 	}
 
 
-	//TODO: >>= operator needed
-	/*{
+	{
 		VeryLongInt x = 1;
 		x <<= 123;
 		x >>= 120;
 		assert(8 == x);
-	}*/
+	}
 
 	//TODO: %= operator needed
 	/*
@@ -91,15 +90,14 @@ int main() {
 	}
 
 
-	//TODO: -= operator needed
-	/*{
+	{
 		VeryLongInt x("1234567890123456789012345678901234567890");
 		VeryLongInt z = x;
 		VeryLongInt y("777777777777777777777777777777777777777");
 		x = x + y;
 		x -= y;
 		assert(x == z);
-	}*/
+	}
 
 	{
 		VeryLongInt x(std::string("12345678"));
@@ -114,14 +112,13 @@ int main() {
 		assert(x == y);
 		std::cout << y << std::endl;
 	}
-	//TODO: -= operator needed
-	/*
+	
 	{
 		VeryLongInt x("1234567890123456789012345678901234567890");
 		VeryLongInt y("1204567890123456789012345678901234567890");
 		VeryLongInt z("30000000000000000000000000000000000000");
 		assert(z == x - y);
-	}*/
+	}
 
 
 	{

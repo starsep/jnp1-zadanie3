@@ -196,7 +196,7 @@ VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &number) {
 		return *this;
 	}
 	const std::vector<bool> &numberRep = number.bitRep;
-	for (size_t i = numberRep.size() - 1; i >= 0; i--) {
+	for (long long i = numberRep.size() - 1; i >= 0; i--) {
 		if (numberRep[i]) {
 			size_t j = i;
 			while (!bitRep[j]) {
@@ -207,7 +207,7 @@ VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &number) {
 		}
 	}
 	removeLeadingZeroes();
-	return *this; //TODO
+	return *this;
 }
 
 VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
