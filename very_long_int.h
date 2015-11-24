@@ -18,6 +18,7 @@ private:
 	void makeNaN();
 	bool isZero() const;
 	void removeLeadingZeroes();
+	void divide(const VeryLongInt &, VeryLongInt &, VeryLongInt &);
 public:
 	//constructors
 	VeryLongInt();

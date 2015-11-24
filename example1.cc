@@ -65,14 +65,15 @@ int main() {
 		assert(8 == x);
 	}
 
-	//TODO: %= operator needed
-	/*
 	{
 		VeryLongInt x = 1;
-		for (int i = 1; i <= 100; ++i)
+		for (int i = 1; i <= 100; ++i) {
 			x *= 2;
-		assert(x % 3 == 1);
-	}*/
+			//std::cerr << "X = " << x << "\n";
+		}
+		//std::cerr << "x / 3 = " << x / VeryLongInt(3) << "\n";
+		//assert(x % 3 == 1);
+	}
 
 	{
 		VeryLongInt x = Zero();
@@ -128,18 +129,15 @@ int main() {
 		assert(z == x * y);
 	}
 
-	//TODO: /= operator needed
-	/*
 	{
 		const int N = 1000;
 		VeryLongInt x = 1;
 		for (int i = 2; i <= N; ++i)
 			x *= i;
-		for (int i = 2; i <= N; ++i)
-			x /= i;
+		//for (int i = 2; i <= N; ++i)
+		//	x /= i;
 		assert(x == 1);
 	}
-	*/
 
 	{
 		assert(Zero().numberOfBinaryDigits() == 1);
@@ -157,5 +155,11 @@ int main() {
 		short int y = 5;
 		VeryLongInt x(y);
 	}
+	{
+		VeryLongInt x(4101);
+		VeryLongInt y(5504);
+		std::cerr << (x % y) << "\n";
+	}
+
 	return 0;
 }

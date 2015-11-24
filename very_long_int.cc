@@ -207,7 +207,7 @@ VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &number) {
 		}
 	}
 	removeLeadingZeroes();
-	return *this;
+	return *this; //TODO
 }
 
 VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
@@ -230,6 +230,25 @@ VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
 	return *this;
 }
 
+void VeryLongInt::divide(const VeryLongInt &number, VeryLongInt &quotient, VeryLongInt &rest) {
+	while (!bitRep.empty()) {
+		rest >>= 1;
+		rest.bitRep[0] = bitRep.back();
+		bitRep.pop_back();
+		//rest.removeLeadingZeroes();
+		quotient >>= 1;
+		if (rest >= number) {
+			quotient.bitRep[0] = true;
+			rest -= number;
+		}
+		else {
+			quotient.bitRep[0] = false;
+		}
+		//quotient.removeLeadingZeroes();
+	}
+	//rest.removeLeadingZeroes();
+}
+
 VeryLongInt &VeryLongInt::operator/=(const VeryLongInt &number) {
 	if (isNaN || !number) {
 		makeNaN();
@@ -238,6 +257,10 @@ VeryLongInt &VeryLongInt::operator/=(const VeryLongInt &number) {
 	if (isZero()) {
 		return *this;
 	}
+	VeryLongInt ret = VeryLongInt();
+	VeryLongInt temp = VeryLongInt();
+	divide(number, ret, temp);
+	bitRep = ret.bitRep;
 
 	return *this; //TODO
 }
@@ -250,8 +273,12 @@ VeryLongInt &VeryLongInt::operator%=(const VeryLongInt &number) {
 	if (isZero()) {
 		return *this;
 	}
+	VeryLongInt ret = VeryLongInt();
+	VeryLongInt temp = VeryLongInt();
+	divide(number, temp, ret);
+	bitRep = ret.bitRep;
 
-	return *this; //TODO
+	return *this;
 }
 
 VeryLongInt &VeryLongInt::operator<<=(unsigned long long number) {
@@ -271,11 +298,17 @@ VeryLongInt &VeryLongInt::operator>>=(unsigned long long number) {
 	if (isNaN || isZero()) {
 		return *this;
 	}
-	for (size_t i = 0; i + number < bitRep.size(); i++) {
-		bitRep[i] = bitRep[i + number];
+	if (number < bitRep.size()) {
+		for (size_t i = 0; i + number < bitRep.size(); i++) {
+			bitRep[i] = bitRep[i + number];
+		}
+		bitRep.resize(bitRep.size() - number);
+		removeLeadingZeroes();
 	}
-	bitRep.resize(bitRep.size() - number);
-
+	else {
+		bitRep.resize(1);
+		bitRep[0] = false;
+	}
 	return *this;
 }
 
