@@ -21,18 +21,9 @@ int main() {
 			VeryLongInt x(i);
 			for (int j = 0; j < 100; j++) {
 				VeryLongInt y(j);
-				bool g = i < j;
-				bool h = x < y;
-				if(g != h) {
-					std::cerr << i << ' ' << j << '\n';
-					std::cerr << x << ' ' << y << '\n';
-					std::cerr << (i < j) << ' ' << (x < y) << '\n';
-					return 0;
-				}
-				//assert(g == h);
+				assert((i < j) == (x < y));
 			}
 		}
-		return 0;
 	}
 	{
 		VeryLongInt x = 1;
