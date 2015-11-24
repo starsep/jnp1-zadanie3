@@ -263,7 +263,7 @@ int main() {
         assert(x.numberOfBinaryDigits() == N);
     }
 
-	{  //Jedyny (na razie) test który nie działa
+	{
         VeryLongInt x("1234567890123456789012345678901234567890");
         stringstream s;
         s << x;
