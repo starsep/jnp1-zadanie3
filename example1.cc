@@ -4,9 +4,6 @@
 
 int main() {
 	{
-		std::cerr << "ZERO: " << Zero() << "\n";
-	}
-	{
 		VeryLongInt x = 1;
 		x /= 0;
 		assert(!x.isValid());
@@ -111,7 +108,7 @@ int main() {
 		VeryLongInt x("12345678901234567890");
 		VeryLongInt y(12345678901234567890UL);
 		assert(x == y);
-		std::cout << y << std::endl;
+		//std::cout << y << std::endl;
 	}
 	
 	{
@@ -130,24 +127,18 @@ int main() {
 	}
 
 	{
-		for(int i = 0; i < 100; i++) {
-			for(int j = 0; j < 100; j++) {
-				std::cerr << "i / j = " << VeryLongInt(i) / VeryLongInt(j) << "\n";
-			}
-		}
 		const int N = 1000;
 		VeryLongInt x = 1;
 		for (int i = 2; i <= N; ++i) {
 			x *= i;
 			if(i % 100 == 0) {
-				std::cerr << "* = " << i << "\n";
+				//std::cerr << "* = " << i << "\n";
 			}
 		}
 		for (int i = 2; i <= N; ++i) {
 			x /= i;
-			std::cerr << i << '\n';
+			//std::cerr << i << '\n';
 		}
-		return 0;
 		assert(x == 1);
 	}
 
@@ -170,7 +161,7 @@ int main() {
 	{
 		VeryLongInt x(4101);
 		VeryLongInt y(5504);
-		std::cerr << (x % y) << "\n";
+		assert(x % y == x);
 	}
 
 	return 0;

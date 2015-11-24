@@ -177,13 +177,13 @@ VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &number) {
 		bitRep[i] = sum % 2;
 		rest = sum / 2;
 	}
-	if (rest) {
-		if (bitRep[numberRep.size()]) {
-			bitRep[numberRep.size()] = false;
-			bitRep[numberRep.size() + 1] = true;
+	for (size_t i = numberRep.size(); rest; i++) {
+		if (bitRep[i]) {
+			bitRep[i] = false;
 		}
 		else {
-			bitRep[numberRep.size()] = true;
+			bitRep[i] = true;
+			rest = false;
 		}
 	}
 	removeLeadingZeroes();

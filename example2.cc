@@ -42,7 +42,7 @@ int main() {
                     cout << s.str() << " != " << s2.str() << endl;
                 }
             }
-            if (a - b < 0) {
+           if (a - b < 0) {
                 if ((x - y).isValid()) {
                     cout << "Błąd w odejmowaniu:" << endl;
                     cout << a << " " << b << endl;
@@ -80,7 +80,7 @@ int main() {
                 cout << a << " " << b << endl;
             }
 
-            if (b == 0) {
+           if (b == 0) {
                 if ((x / y).isValid()) {
                     cout << "Błąd w dzieleniu div:" << endl;
                     cout << a << " " << b << endl;
