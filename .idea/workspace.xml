@@ -14,6 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cff60740-94fb-4fed-a60f-4545598f67a9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example1.cc" afterPath="$PROJECT_DIR$/example1.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example2.cc" afterPath="$PROJECT_DIR$/example2.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/very_long_int.cc" afterPath="$PROJECT_DIR$/very_long_int.cc" />
@@ -40,8 +41,8 @@
       <file leaf-file-name="example1.cc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example1.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.0">
-              <caret line="163" column="27" selection-start-line="163" selection-start-column="27" selection-end-line="163" selection-end-column="27" />
+            <state vertical-scroll-proportion="-8.357142">
+              <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -50,8 +51,8 @@
       <file leaf-file-name="example2.cc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example2.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.4655173">
-              <caret line="124" column="13" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
+            <state vertical-scroll-proportion="-0.8103448">
+              <caret line="262" column="8" selection-start-line="262" selection-start-column="8" selection-end-line="262" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -60,8 +61,8 @@
       <file leaf-file-name="very_long_int.cc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/very_long_int.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.571429">
-              <caret line="178" column="5" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
+            <state vertical-scroll-proportion="-7.928571">
+              <caret line="198" column="49" selection-start-line="198" selection-start-column="49" selection-end-line="198" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -126,8 +127,8 @@
         <option value="$USER_HOME$/Pobrane/very_long_int (3).txt" />
         <option value="$USER_HOME$/Pobrane/very_long_int.txt" />
         <option value="$USER_HOME$/Pobrane/very_long_int (1).txt" />
-        <option value="$PROJECT_DIR$/very_long_int.cc" />
         <option value="$PROJECT_DIR$/example1.cc" />
+        <option value="$PROJECT_DIR$/very_long_int.cc" />
         <option value="$PROJECT_DIR$/example2.cc" />
       </list>
     </option>
@@ -704,14 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/very_long_int.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Pobrane/very_long_int (1).txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -720,26 +713,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/very_long_int.cc">
+    <entry file="file://$PROJECT_DIR$/very_long_int.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.571429">
-          <caret line="178" column="5" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example1.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0">
-          <caret line="163" column="27" selection-start-line="163" selection-start-column="27" selection-end-line="163" selection-end-column="27" />
+        <state vertical-scroll-proportion="-8.357142">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/very_long_int.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.928571">
+          <caret line="198" column="49" selection-start-line="198" selection-start-column="49" selection-end-line="198" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example2.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4655173">
-          <caret line="124" column="13" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
+        <state vertical-scroll-proportion="-0.8103448">
+          <caret line="262" column="8" selection-start-line="262" selection-start-column="8" selection-end-line="262" selection-end-column="8" />
           <folding />
         </state>
       </provider>

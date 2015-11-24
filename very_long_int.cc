@@ -196,7 +196,7 @@ VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &number) {
 		return *this;
 	}
 	const std::vector<bool> &numberRep = number.bitRep;
-	for (long long i = numberRep.size() - 1; i >= 0; i--) {
+	for (size_t i = numberRep.size() - 1; i + 1 > 0; i--) {
 		if (numberRep[i]) {
 			size_t j = i;
 			while (!bitRep[j]) {
@@ -359,12 +359,12 @@ bool operator<(const VeryLongInt &x, const VeryLongInt &y) {
 	if (x.bitRep.size() != y.bitRep.size()) {
 		return x.bitRep.size() < y.bitRep.size();
 	}
-	for (size_t i = x.bitRep.size() - 1; i > 0; i--) {
-		if (x.bitRep[i] < y.bitRep[i]) {
-			return true;
+	for (size_t i = x.bitRep.size() - 1; i + 1 > 0; i--) {
+		if (x.bitRep[i] != y.bitRep[i]) {
+			return y.bitRep[i];
 		}
 	}
-	return x.bitRep[0] < y.bitRep[0];
+	return false;
 }
 
 bool operator!=(const VeryLongInt &x, const VeryLongInt &y) {

@@ -4,6 +4,37 @@
 
 int main() {
 	{
+		for (int i = 0; i < 1000; i++) {
+			VeryLongInt x(100 + i);
+			for (int j = 0; j < 100; j++) {
+				VeryLongInt y(j);
+				int q = 100 + i - j;
+				VeryLongInt z(q);
+				if(x - y == z) {
+					//std::cerr << x << " " << y << " " << z << '\n';
+				}
+			}
+		}
+	}
+	{
+		for (int i = 0; i < 100; i++) {
+			VeryLongInt x(i);
+			for (int j = 0; j < 100; j++) {
+				VeryLongInt y(j);
+				bool g = i < j;
+				bool h = x < y;
+				if(g != h) {
+					std::cerr << i << ' ' << j << '\n';
+					std::cerr << x << ' ' << y << '\n';
+					std::cerr << (i < j) << ' ' << (x < y) << '\n';
+					return 0;
+				}
+				//assert(g == h);
+			}
+		}
+		return 0;
+	}
+	{
 		VeryLongInt x = 1;
 		x /= 0;
 		assert(!x.isValid());
@@ -110,7 +141,7 @@ int main() {
 		assert(x == y);
 		//std::cout << y << std::endl;
 	}
-	
+
 	{
 		VeryLongInt x("1234567890123456789012345678901234567890");
 		VeryLongInt y("1204567890123456789012345678901234567890");
@@ -131,7 +162,7 @@ int main() {
 		VeryLongInt x = 1;
 		for (int i = 2; i <= N; ++i) {
 			x *= i;
-			if(i % 100 == 0) {
+			if (i % 100 == 0) {
 				//std::cerr << "* = " << i << "\n";
 			}
 		}

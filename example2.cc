@@ -52,7 +52,6 @@ int main() {
                 if (x - y != a - b) {
                     cout << "Błąd w odejmowaniu:" << endl;
                     cout << a << " " << b << endl;
-
                 }
 
                 stringstream s, s2;
@@ -261,7 +260,7 @@ int main() {
         VeryLongInt x = 1;
         for (int i = 1; i < N; ++i)
             x *= 2;
-        //assert(x.numberOfBinaryDigits() == N);
+        assert(x.numberOfBinaryDigits() == N);
     }
 
 	{  //Jedyny (na razie) test który nie działa
