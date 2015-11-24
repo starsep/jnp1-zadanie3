@@ -233,9 +233,9 @@ VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
 void VeryLongInt::divide(const VeryLongInt &number, VeryLongInt &quotient, VeryLongInt &rest) {
 	while (!bitRep.empty()) {
 		rest >>= 1;
-		rest.bitRep[0] = bitRep.back();
+		rest.bitRep[0] = bitRep[bitRep.size() - 1];
 		bitRep.pop_back();
-		//rest.removeLeadingZeroes();
+		rest.removeLeadingZeroes();
 		quotient >>= 1;
 		if (rest >= number) {
 			quotient.bitRep[0] = true;
@@ -244,9 +244,9 @@ void VeryLongInt::divide(const VeryLongInt &number, VeryLongInt &quotient, VeryL
 		else {
 			quotient.bitRep[0] = false;
 		}
-		//quotient.removeLeadingZeroes();
+		quotient.removeLeadingZeroes();
 	}
-	//rest.removeLeadingZeroes();
+	rest.removeLeadingZeroes();
 }
 
 VeryLongInt &VeryLongInt::operator/=(const VeryLongInt &number) {
@@ -278,7 +278,7 @@ VeryLongInt &VeryLongInt::operator%=(const VeryLongInt &number) {
 	divide(number, temp, ret);
 	bitRep = ret.bitRep;
 
-	return *this;
+	return *this; //TODO
 }
 
 VeryLongInt &VeryLongInt::operator<<=(unsigned long long number) {
@@ -309,7 +309,7 @@ VeryLongInt &VeryLongInt::operator>>=(unsigned long long number) {
 		bitRep.resize(1);
 		bitRep[0] = false;
 	}
-	return *this;
+	return *this; //TODO
 }
 
 const VeryLongInt operator+(const VeryLongInt &x, const VeryLongInt &y) {

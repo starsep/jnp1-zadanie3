@@ -130,12 +130,24 @@ int main() {
 	}
 
 	{
+		for(int i = 0; i < 100; i++) {
+			for(int j = 0; j < 100; j++) {
+				std::cerr << "i / j = " << VeryLongInt(i) / VeryLongInt(j) << "\n";
+			}
+		}
 		const int N = 1000;
 		VeryLongInt x = 1;
-		for (int i = 2; i <= N; ++i)
+		for (int i = 2; i <= N; ++i) {
 			x *= i;
-		//for (int i = 2; i <= N; ++i)
-		//	x /= i;
+			if(i % 100 == 0) {
+				std::cerr << "* = " << i << "\n";
+			}
+		}
+		for (int i = 2; i <= N; ++i) {
+			x /= i;
+			std::cerr << i << '\n';
+		}
+		return 0;
 		assert(x == 1);
 	}
 
