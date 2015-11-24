@@ -232,11 +232,11 @@ VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
 
 void VeryLongInt::divide(const VeryLongInt &number, VeryLongInt &quotient, VeryLongInt &rest) {
 	while (!bitRep.empty()) {
-		rest >>= 1;
+		rest <<= 1;
 		rest.bitRep[0] = bitRep[bitRep.size() - 1];
 		bitRep.pop_back();
 		rest.removeLeadingZeroes();
-		quotient >>= 1;
+		quotient <<= 1;
 		if (rest >= number) {
 			quotient.bitRep[0] = true;
 			rest -= number;
