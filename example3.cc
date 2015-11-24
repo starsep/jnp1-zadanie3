@@ -22,6 +22,7 @@ int main() {
 	VeryLongInt ad(42U);
 	VeryLongInt ae(42UL);
 	VeryLongInt af(42ULL);
+
 	const VeryLongInt ag(42);
 	ag.numberOfBinaryDigits();
 	ag.isValid();
