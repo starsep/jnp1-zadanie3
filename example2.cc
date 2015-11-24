@@ -8,6 +8,9 @@
 using namespace std;
 int main() {
     {
+		VeryLongInt aa = 42;
+		aa += aa;
+		std::cerr << aa;
         VeryLongInt p = 3;
         VeryLongInt z = 4;
         p = 42;
