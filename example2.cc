@@ -4,10 +4,11 @@
 #include <cassert>
 #include <sstream>
 #include <random>
+#include <cstring>
 
 using namespace std;
 
-int main() {
+int main(int argc, char **argv) {
 	{
 		VeryLongInt p = 3;
 		VeryLongInt z = 4;
@@ -25,6 +26,9 @@ int main() {
 		random_device d;
 		mt19937 gen(d());
 		for (int i = 0; i < 500000; i++) {
+			if(i % 10000 == 0 && argc > 1 && strcmp(argv[1], "-t") == 0) {
+				cerr << "TEST: " << i << endl;
+			}
 			long long a = gen() % 10000;
 			long long b = gen() % 10000;
 			VeryLongInt x(a), y(b);
@@ -122,6 +126,33 @@ int main() {
 					}
 				}
 
+			}
+			if((x < y) != (a < b)) {
+				cout << "Mniejsze fail" << endl;
+			}
+			if((x > y) != (a > b)) {
+				cout << "Wieksze fail" << endl;
+			}
+			if((x <= y) != (a <= b)) {
+				cout << "Mniejsze rowne fail" << endl;
+			}
+			if((x >= y) != (a >= b)) {
+				cout << "Wieksze rowne fail" << endl;
+			}
+			if((x == y) != (a == b)) {
+				cout << "Rowne fail" << endl;
+			}
+			if((x != y) != (a != b)) {
+				cout << "Rozne fail" << endl;
+			}
+			long long B = b % 42;
+			if((x << B) != (a << B)) {
+				cout << "Left shift fail" << endl;
+				cout << (x << B) << " " << (a << B) << endl;
+			}
+			if((x >> B) != (a >> B)) {
+				cout << "Right shift fail" << endl;
+				cout << (x >> B) << " " << (a >> B) << endl;
 			}
 		}
 	}
@@ -306,10 +337,9 @@ int main() {
 	}
 
 	{
-		const int N = 1000;
+		const int N = 100;
 		VeryLongInt x = 1;
 		for (int i = 2; i <= N; ++i)
-
 			x *= i;
 		for (int i = 2; i <= N; ++i)
 			x /= i;
