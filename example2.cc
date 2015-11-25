@@ -23,14 +23,12 @@ int main(int argc, char **argv) {
 		assert(zero == 0);
 	}
 	{
-		random_device d;
-		mt19937 gen(d());
 		for (int i = 0; i < 500000; i++) {
 			if(i % 10000 == 0 && argc > 1 && strcmp(argv[1], "-t") == 0) {
 				cerr << "TEST: " << i << endl;
 			}
-			long long a = gen() % 10000;
-			long long b = gen() % 10000;
+			long long a = rand() % 10000;
+			long long b = rand() % 10000;
 			VeryLongInt x(a), y(b);
 			if (x + y != a + b) {
 				cout << "Błąd w dodawaniu:" << endl;
