@@ -107,7 +107,7 @@ function end_check {
 }
 
 compile
-compile_example 1 2 3
+compile_example 1 2 3 4
 compile_bad 1 2 3 4 5 6
-test_example 1 2 3
+test_example 1 2 3 4
 end_check
