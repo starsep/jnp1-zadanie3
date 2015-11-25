@@ -26,7 +26,7 @@ int main() {
 	const VeryLongInt ag(42);
 	ag.numberOfBinaryDigits();
 	ag.isValid();
-	if(ag) {
+	if (ag) {
 
 	}
 	ab = aa;
