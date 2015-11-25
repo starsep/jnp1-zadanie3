@@ -17,4 +17,4 @@ bad_example%: bad_example%.cc very_long_int.o
 	$(COMPILER) $(CFLAGS) -o $@ $^
 
 clean:
-	rm -f *.o $(OBJECTS)
+	rm -f *.o $(OBJECTS) $(BAD_OBJECTS)

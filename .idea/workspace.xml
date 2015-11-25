@@ -17,8 +17,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cff60740-94fb-4fed-a60f-4545598f67a9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/very_long_int.cc" afterPath="$PROJECT_DIR$/very_long_int.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/very_long_int.h" afterPath="$PROJECT_DIR$/very_long_int.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="jnp1-zadanie3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,8 +83,8 @@
           <file leaf-file-name="very_long_int.cc" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/very_long_int.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="2.0299401">
-                  <caret line="406" column="0" selection-start-line="406" selection-start-column="0" selection-end-line="406" selection-end-column="0" />
+                <state vertical-scroll-proportion="-2.8203592">
+                  <caret line="358" column="5" selection-start-line="358" selection-start-column="5" selection-end-line="358" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -128,7 +127,7 @@
           <file leaf-file-name="very_long_int.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/very_long_int.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="2.3017242">
+                <state vertical-scroll-proportion="0.3275862">
                   <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="23" />
                   <folding />
                 </state>
@@ -323,7 +322,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="35" width="1920" height="1021" extended-state="0" />
+    <frame x="0" y="35" width="1920" height="1021" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986821" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -733,8 +732,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/very_long_int.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0299401">
-          <caret line="406" column="0" selection-start-line="406" selection-start-column="0" selection-end-line="406" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.8203592">
+          <caret line="358" column="5" selection-start-line="358" selection-start-column="5" selection-end-line="358" selection-end-column="5" />
           <folding />
         </state>
       </provider>
