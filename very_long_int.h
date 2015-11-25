@@ -24,8 +24,14 @@ public:
 	VeryLongInt();
 	VeryLongInt(const VeryLongInt &);
 	VeryLongInt(VeryLongInt &&);
-	explicit VeryLongInt(const char *);
+	VeryLongInt(int);
+	VeryLongInt(long);
+	VeryLongInt(long long);
+	VeryLongInt(unsigned);
+	VeryLongInt(unsigned long);
+	VeryLongInt(unsigned long long);
 	explicit VeryLongInt(const std::string &);
+	explicit VeryLongInt(const char *);
 	explicit VeryLongInt(bool) = delete;
 	explicit VeryLongInt(char) = delete;
 	explicit VeryLongInt(char16_t) = delete;
@@ -33,12 +39,6 @@ public:
 	explicit VeryLongInt(double) = delete;
 	explicit VeryLongInt(float) = delete;
 	explicit VeryLongInt(long double) = delete;
-	VeryLongInt(int);
-	VeryLongInt(long);
-	VeryLongInt(long long);
-	VeryLongInt(unsigned);
-	VeryLongInt(unsigned long);
-	VeryLongInt(unsigned long long);
 
 	//const methods
 	size_t numberOfBinaryDigits() const;
@@ -65,14 +65,14 @@ public:
 
 	//compound arithmetic operators
 	VeryLongInt & operator+=(const VeryLongInt &);
-	VeryLongInt & operator-=(const VeryLongInt &); //
+	VeryLongInt & operator-=(const VeryLongInt &);
 	VeryLongInt & operator*=(const VeryLongInt &);
-	VeryLongInt & operator/=(const VeryLongInt &); //
-	VeryLongInt & operator%=(const VeryLongInt &); //
+	VeryLongInt & operator/=(const VeryLongInt &);
+	VeryLongInt & operator%=(const VeryLongInt &);
 	VeryLongInt & operator<<=(unsigned long long);
-	VeryLongInt & operator>>=(unsigned long long); //
+	VeryLongInt & operator>>=(unsigned long long);
 
-	//comparison operators
+	//friend comparison operators
 	friend bool operator==(const VeryLongInt &, const VeryLongInt &);
 	friend bool operator<(const VeryLongInt &, const VeryLongInt &);
 

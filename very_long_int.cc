@@ -3,7 +3,53 @@
 #include <algorithm>
 #include <cstring>
 
+//static initialization
+
 VeryLongInt VeryLongInt::nan = VeryLongInt();
+
+//private methods
+
+const VeryLongInt &VeryLongInt::getNaN() {
+	nan.makeNaN();
+	return nan;
+}
+
+void VeryLongInt::makeNaN() {
+	isNaN = true;
+	bitRep.clear();
+}
+
+bool VeryLongInt::isZero() const {
+	return bitRep.size() == 1 && !bitRep[0];
+}
+
+void VeryLongInt::removeLeadingZeroes() {
+	while (bitRep.size() > 1 && !bitRep.back()) {
+		bitRep.pop_back();
+	}
+}
+
+void VeryLongInt::divide(const VeryLongInt &number, VeryLongInt &quotient, VeryLongInt &rest) {
+	while (!bitRep.empty()) {
+		rest <<= 1;
+		rest.bitRep[0] = bitRep.back();
+		bitRep.pop_back();
+		rest.removeLeadingZeroes();
+		quotient <<= 1;
+		if (rest >= number) {
+			quotient.bitRep[0] = true;
+			rest -= number;
+		}
+		else {
+			quotient.bitRep[0] = false;
+		}
+		quotient.removeLeadingZeroes();
+	}
+	rest.removeLeadingZeroes();
+}
+
+//public methods
+//constructors
 
 VeryLongInt::VeryLongInt()
 	: isNaN(false) {
@@ -28,10 +74,6 @@ VeryLongInt::VeryLongInt(long number) :
 	VeryLongInt(static_cast<long long>(number)) {
 }
 
-VeryLongInt::VeryLongInt(unsigned long number) :
-	VeryLongInt(static_cast<unsigned long long>(number)) {
-}
-
 VeryLongInt::VeryLongInt(long long number) {
 	if (number < 0) {
 		makeNaN();
@@ -41,6 +83,10 @@ VeryLongInt::VeryLongInt(long long number) {
 }
 
 VeryLongInt::VeryLongInt(unsigned number) :
+	VeryLongInt(static_cast<unsigned long long>(number)) {
+}
+
+VeryLongInt::VeryLongInt(unsigned long number) :
 	VeryLongInt(static_cast<unsigned long long>(number)) {
 }
 
@@ -99,14 +145,7 @@ VeryLongInt::VeryLongInt(const char *number) {
 	*this = VeryLongInt(std::string(number));
 }
 
-void VeryLongInt::makeNaN() {
-	isNaN = true;
-	bitRep.clear();
-}
-
-bool VeryLongInt::isZero() const {
-	return bitRep.size() == 1 && !bitRep[0];
-}
+//const methods
 
 size_t VeryLongInt::numberOfBinaryDigits() const {
 	return bitRep.size();
@@ -119,6 +158,8 @@ bool VeryLongInt::isValid() const {
 VeryLongInt::operator bool() const {
 	return isValid() && !isZero();
 }
+
+//operators=
 
 VeryLongInt &VeryLongInt::operator=(const VeryLongInt &source) {
 	isNaN = source.isNaN;
@@ -161,6 +202,8 @@ VeryLongInt &VeryLongInt::operator=(const char *source) {
 VeryLongInt &VeryLongInt::operator=(const std::string &source) {
 	return operator=(VeryLongInt(source));
 }
+
+//compound arithmetic operators
 
 VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &number) {
 	if (isNaN || number.isNaN) {
@@ -207,7 +250,7 @@ VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &number) {
 		}
 	}
 	removeLeadingZeroes();
-	return *this; //TODO
+	return *this;
 }
 
 VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
@@ -230,25 +273,6 @@ VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
 	return *this;
 }
 
-void VeryLongInt::divide(const VeryLongInt &number, VeryLongInt &quotient, VeryLongInt &rest) {
-	while (!bitRep.empty()) {
-		rest <<= 1;
-		rest.bitRep[0] = bitRep[bitRep.size() - 1];
-		bitRep.pop_back();
-		rest.removeLeadingZeroes();
-		quotient <<= 1;
-		if (rest >= number) {
-			quotient.bitRep[0] = true;
-			rest -= number;
-		}
-		else {
-			quotient.bitRep[0] = false;
-		}
-		quotient.removeLeadingZeroes();
-	}
-	rest.removeLeadingZeroes();
-}
-
 VeryLongInt &VeryLongInt::operator/=(const VeryLongInt &number) {
 	if (isNaN || !number) {
 		makeNaN();
@@ -262,7 +286,7 @@ VeryLongInt &VeryLongInt::operator/=(const VeryLongInt &number) {
 	divide(number, ret, temp);
 	bitRep = ret.bitRep;
 
-	return *this; //TODO
+	return *this;
 }
 
 VeryLongInt &VeryLongInt::operator%=(const VeryLongInt &number) {
@@ -278,7 +302,7 @@ VeryLongInt &VeryLongInt::operator%=(const VeryLongInt &number) {
 	divide(number, temp, ret);
 	bitRep = ret.bitRep;
 
-	return *this; //TODO
+	return *this;
 }
 
 VeryLongInt &VeryLongInt::operator<<=(unsigned long long number) {
@@ -309,8 +333,107 @@ VeryLongInt &VeryLongInt::operator>>=(unsigned long long number) {
 		bitRep.resize(1);
 		bitRep[0] = false;
 	}
-	return *this; //TODO
+	return *this;
 }
+
+//friend comparison operators
+
+bool operator==(const VeryLongInt &x, const VeryLongInt &y) {
+	if (x.isNaN || y.isNaN || x.bitRep.size() != y.bitRep.size()) {
+		return false;
+	}
+	for (size_t i = 0; i < x.bitRep.size(); i++) {
+		if (x.bitRep[i] != y.bitRep[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+bool operator<(const VeryLongInt &x, const VeryLongInt &y) {
+	if (x.isNaN || y.isNaN) {
+		return false;
+	}
+	if (x.bitRep.size() != y.bitRep.size()) {
+		return x.bitRep.size() < y.bitRep.size();
+	}
+	for (size_t i = x.bitRep.size() - 1; i + 1 > 0; i--) {
+		if (x.bitRep[i] != y.bitRep[i]) {
+			return y.bitRep[i];
+		}
+	}
+	return false;
+}
+
+//ostream operator
+
+std::ostream &operator<<(std::ostream &ostream, const VeryLongInt &number) {
+	if (number.isNaN) {
+		ostream << "NaN";
+		return ostream;
+	}
+	if (number.isZero()) {
+		ostream << '0';
+		return ostream;
+	}
+	auto multiplyBy2 = [](std::string &decimal) {
+		char rest = 0;
+		for (size_t i = 0; i < decimal.size(); i++) {
+			decimal[i] *= 2;
+			decimal[i] += rest;
+			rest = decimal[i] / 10;
+			decimal[i] -= rest * 10;
+		}
+		if (rest) {
+			decimal += rest;
+		}
+	};
+	auto removeLeadingZeroesFromDecimal = [](std::string &decimal) {
+		while (decimal.size() > 1 && decimal.back() == 0) {
+			decimal.pop_back();
+		}
+	};
+	auto addToDecimal = [removeLeadingZeroesFromDecimal](std::string &decimal, const std::string &add) {
+		decimal.resize(std::max(decimal.size(), add.size()) + 1);
+		for (size_t i = 0; i < add.size(); i++) {
+			decimal[i] += add[i];
+			if (decimal[i] >= 10) {
+				decimal[i + 1]++;
+				decimal[i] -= 10;
+			}
+		}
+		removeLeadingZeroesFromDecimal(decimal);
+	};
+
+	std::string convertedToDecimal;
+	std::string powerOf2;
+	powerOf2 += char(1);
+	for (bool powerInSum : number.bitRep) {
+		if (powerInSum) {
+			addToDecimal(convertedToDecimal, powerOf2);
+		}
+		multiplyBy2(powerOf2);
+	}
+	for (size_t i = 0; i < convertedToDecimal.size(); i++) {
+		convertedToDecimal[i] += '0';
+	}
+	std::reverse(convertedToDecimal.begin(), convertedToDecimal.end());
+	ostream << convertedToDecimal;
+	return ostream;
+}
+
+//"singleton" functions
+
+const VeryLongInt &Zero() {
+	static const VeryLongInt zero = VeryLongInt();
+	return zero;
+}
+
+const VeryLongInt &NaN() {
+	return VeryLongInt::getNaN();
+}
+
+//arithmetic operators
 
 const VeryLongInt operator+(const VeryLongInt &x, const VeryLongInt &y) {
 	return VeryLongInt(x) += y;
@@ -340,32 +463,7 @@ const VeryLongInt operator>>(const VeryLongInt &x, unsigned long long y) {
 	return VeryLongInt(x) >>= y;
 }
 
-bool operator==(const VeryLongInt &x, const VeryLongInt &y) {
-	if (x.isNaN || y.isNaN || x.bitRep.size() != y.bitRep.size()) {
-		return false;
-	}
-	for (size_t i = 0; i < x.bitRep.size(); i++) {
-		if (x.bitRep[i] != y.bitRep[i]) {
-			return false;
-		}
-	}
-	return true;
-}
-
-bool operator<(const VeryLongInt &x, const VeryLongInt &y) {
-	if (x.isNaN || y.isNaN) {
-		return false;
-	}
-	if (x.bitRep.size() != y.bitRep.size()) {
-		return x.bitRep.size() < y.bitRep.size();
-	}
-	for (size_t i = x.bitRep.size() - 1; i + 1 > 0; i--) {
-		if (x.bitRep[i] != y.bitRep[i]) {
-			return y.bitRep[i];
-		}
-	}
-	return false;
-}
+//comparison operators
 
 bool operator!=(const VeryLongInt &x, const VeryLongInt &y) {
 	if (!x.isValid() || !y.isValid()) {
@@ -393,78 +491,4 @@ bool operator>=(const VeryLongInt &x, const VeryLongInt &y) {
 		return false;
 	}
 	return !(x < y);
-}
-
-std::ostream &operator<<(std::ostream &ostream, const VeryLongInt &number) {
-	if (number.isNaN) {
-		ostream << "NaN";
-		return ostream;
-	}
-	if (number.isZero()) {
-		ostream << '0';
-		return ostream;
-	}
-	std::string convertedToDecimal;
-	std::string powerOf2;
-	powerOf2 += char(1);
-	auto multiplyBy2 = [](std::string &decimal) {
-		char rest = 0;
-		for (size_t i = 0; i < decimal.size(); i++) {
-			decimal[i] *= 2;
-			decimal[i] += rest;
-			rest = decimal[i] / 10;
-			decimal[i] -= rest * 10;
-		}
-		if (rest) {
-			decimal += rest;
-		}
-	};
-	auto removeLeadingZeroes = [](std::string &decimal) {
-		while (decimal.size() > 1 && decimal.back() == 0) {
-			decimal.pop_back();
-		}
-	};
-	auto addToDecimal = [removeLeadingZeroes](std::string &decimal, const std::string &add) {
-		decimal.resize(std::max(decimal.size(), add.size()) + 1);
-		for (size_t i = 0; i < add.size(); i++) {
-			decimal[i] += add[i];
-			if (decimal[i] >= 10) {
-				decimal[i + 1]++;
-				decimal[i] -= 10;
-			}
-		}
-		removeLeadingZeroes(decimal);
-	};
-	for (bool powerInSum : number.bitRep) {
-		if (powerInSum) {
-			addToDecimal(convertedToDecimal, powerOf2);
-		}
-		multiplyBy2(powerOf2);
-	}
-	for (size_t i = 0; i < convertedToDecimal.size(); i++) {
-		convertedToDecimal[i] += '0';
-	}
-	std::reverse(convertedToDecimal.begin(), convertedToDecimal.end());
-	ostream << convertedToDecimal;
-	return ostream;
-}
-
-const VeryLongInt &Zero() {
-	static const VeryLongInt zero = VeryLongInt();
-	return zero;
-}
-
-const VeryLongInt &VeryLongInt::getNaN() {
-	nan.makeNaN();
-	return nan;
-}
-
-const VeryLongInt &NaN() {
-	return VeryLongInt::getNaN();
-}
-
-void VeryLongInt::removeLeadingZeroes() {
-	while (bitRep.size() > 1 && !bitRep.back()) {
-		bitRep.pop_back();
-	}
 }
