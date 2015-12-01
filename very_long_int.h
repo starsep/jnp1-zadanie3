@@ -53,8 +53,8 @@ public:
 	VeryLongInt & operator=(unsigned);
 	VeryLongInt & operator=(unsigned long);
 	VeryLongInt & operator=(unsigned long long);
-	VeryLongInt & operator=(const char *);
-	VeryLongInt & operator=(const std::string &);
+	VeryLongInt & operator=(const char *) = delete;
+	VeryLongInt & operator=(const std::string &) = delete;
 	VeryLongInt & operator=(bool) = delete;
 	VeryLongInt & operator=(char) = delete;
 	VeryLongInt & operator=(char16_t) = delete;

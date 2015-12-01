@@ -36,8 +36,8 @@ int main() {
 	aa = 42U;
 	aa = 42UL;
 	aa = 42ULL;
-	aa = "42";
-	aa = std::string("42");
+	//aa = "42";
+	//aa = std::string("42");
 
 	//aa = false;
 	//aa = 'a';

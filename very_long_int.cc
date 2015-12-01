@@ -135,6 +135,9 @@ VeryLongInt::VeryLongInt(const std::string &number) {
 	}
 	isNaN = false;
 	delete[] copy;
+	if (bitRep.empty()) {
+		bitRep.push_back(0);
+	}
 }
 
 VeryLongInt::VeryLongInt(const char *number) {
@@ -189,18 +192,6 @@ VeryLongInt &VeryLongInt::operator=(unsigned long source) {
 
 VeryLongInt &VeryLongInt::operator=(unsigned long long source) {
 	return operator=(static_cast<const VeryLongInt &>(source));
-}
-
-VeryLongInt &VeryLongInt::operator=(const char *source) {
-	if (source == nullptr) {
-		makeNaN();
-		return *this;
-	}
-	return operator=(VeryLongInt(std::string(source)));
-}
-
-VeryLongInt &VeryLongInt::operator=(const std::string &source) {
-	return operator=(VeryLongInt(source));
 }
 
 //compound arithmetic operators
