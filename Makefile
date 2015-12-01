@@ -21,6 +21,7 @@ clean:
 
 tests: run_tests.csh very_long_int.cc very_long_int.h
 	mkdir -p TESTS
-	cp very_long_int.cc very_long_int.h
+	cp very_long_int.cc TESTS
+	cp very_long_int.h TESTS
 	./run_tests.csh TESTS
 	rm -rf TESTS
