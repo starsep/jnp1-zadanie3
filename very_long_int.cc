@@ -170,11 +170,6 @@ VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &number) {
 		makeNaN();
 		return *this;
 	}
-	/*if (this == &number) {
-		std::cerr << "LEL\n";
-		VeryLongInt copy(*this);
-		*this = copy;
-	}*/ //check
 	const std::vector<bool> &numberRep = number.bitRep;
 	bitRep.resize(std::max(bitRep.size(), numberRep.size()) + 1);
 	bool rest = false;
