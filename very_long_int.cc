@@ -15,7 +15,6 @@ const VeryLongInt &VeryLongInt::getNaN() {
 }
 
 void VeryLongInt::makeNaN() {
-	isNaN = true;
 	bitRep.clear();
 }
 
@@ -51,19 +50,16 @@ void VeryLongInt::divide(const VeryLongInt &number, VeryLongInt &quotient, VeryL
 //public methods
 //constructors
 
-VeryLongInt::VeryLongInt()
-	: isNaN(false) {
+VeryLongInt::VeryLongInt() {
 	bitRep.push_back(0);
 }
 
 VeryLongInt::VeryLongInt(const VeryLongInt &source)
-	: bitRep(source.bitRep),
-	  isNaN(source.isNaN) {
+	: bitRep(source.bitRep) {
 }
 
 VeryLongInt::VeryLongInt(VeryLongInt &&source)
-	: bitRep(std::move(source.bitRep)),
-	  isNaN(std::move(source.isNaN)) {
+	: bitRep(std::move(source.bitRep)) {
 }
 
 VeryLongInt::VeryLongInt(int number) :
@@ -91,7 +87,6 @@ VeryLongInt::VeryLongInt(unsigned long number) :
 }
 
 VeryLongInt::VeryLongInt(unsigned long long number) {
-	isNaN = false;
 	for (; number > 0; number /= 2) {
 		bitRep.push_back(number % 2);
 	}
@@ -133,7 +128,6 @@ VeryLongInt::VeryLongInt(const std::string &number) {
 		});
 		firstNonZeroIndex = std::find_if(copy + firstNonZeroIndex, copy + number.size(), nonZero) - copy;
 	}
-	isNaN = false;
 	delete[] copy;
 	if (bitRep.empty()) {
 		bitRep.push_back(0);
@@ -155,52 +149,32 @@ size_t VeryLongInt::numberOfBinaryDigits() const {
 }
 
 bool VeryLongInt::isValid() const {
-	return !isNaN;
+	return !bitRep.empty();
 }
 
 VeryLongInt::operator bool() const {
 	return isValid() && !isZero();
 }
 
-//operators=
+//operator=
 
 VeryLongInt &VeryLongInt::operator=(const VeryLongInt &source) {
-	isNaN = source.isNaN;
 	bitRep = source.bitRep;
 	return *this;
-}
-
-VeryLongInt &VeryLongInt::operator=(int source) {
-	return operator=(static_cast<const VeryLongInt &>(source));
-}
-
-VeryLongInt &VeryLongInt::operator=(long source) {
-	return operator=(static_cast<const VeryLongInt &>(source));
-}
-
-VeryLongInt &VeryLongInt::operator=(long long source) {
-	return operator=(static_cast<const VeryLongInt &>(source));
-}
-
-VeryLongInt &VeryLongInt::operator=(unsigned source) {
-	return operator=(static_cast<const VeryLongInt &>(source));
-}
-
-VeryLongInt &VeryLongInt::operator=(unsigned long source) {
-	return operator=(static_cast<const VeryLongInt &>(source));
-}
-
-VeryLongInt &VeryLongInt::operator=(unsigned long long source) {
-	return operator=(static_cast<const VeryLongInt &>(source));
 }
 
 //compound arithmetic operators
 
 VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &number) {
-	if (isNaN || number.isNaN) {
+	if (!isValid() || !number.isValid()) {
 		makeNaN();
 		return *this;
 	}
+	/*if (this == &number) {
+		std::cerr << "LEL\n";
+		VeryLongInt copy(*this);
+		*this = copy;
+	}*/ //check
 	const std::vector<bool> &numberRep = number.bitRep;
 	bitRep.resize(std::max(bitRep.size(), numberRep.size()) + 1);
 	bool rest = false;
@@ -225,7 +199,7 @@ VeryLongInt &VeryLongInt::operator+=(const VeryLongInt &number) {
 }
 
 VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &number) {
-	if (isNaN || number.isNaN || number > (*this)) {
+	if (!isValid() || !number.isValid() || number > (*this)) {
 		makeNaN();
 		return *this;
 	}
@@ -245,7 +219,7 @@ VeryLongInt &VeryLongInt::operator-=(const VeryLongInt &number) {
 }
 
 VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
-	if (isNaN || number.isNaN) {
+	if (!isValid() || !number.isValid()) {
 		makeNaN();
 		return *this;
 	}
@@ -265,7 +239,7 @@ VeryLongInt &VeryLongInt::operator*=(const VeryLongInt &number) {
 }
 
 VeryLongInt &VeryLongInt::operator/=(const VeryLongInt &number) {
-	if (isNaN || !number) {
+	if (!isValid() || !number) {
 		makeNaN();
 		return *this;
 	}
@@ -281,7 +255,7 @@ VeryLongInt &VeryLongInt::operator/=(const VeryLongInt &number) {
 }
 
 VeryLongInt &VeryLongInt::operator%=(const VeryLongInt &number) {
-	if (isNaN || !number) {
+	if (!isValid() || !number) {
 		makeNaN();
 		return *this;
 	}
@@ -297,7 +271,7 @@ VeryLongInt &VeryLongInt::operator%=(const VeryLongInt &number) {
 }
 
 VeryLongInt &VeryLongInt::operator<<=(unsigned long long number) {
-	if (isNaN || isZero()) {
+	if (!*this) {
 		return *this;
 	}
 	const std::vector<bool> copy = bitRep;
@@ -310,7 +284,7 @@ VeryLongInt &VeryLongInt::operator<<=(unsigned long long number) {
 }
 
 VeryLongInt &VeryLongInt::operator>>=(unsigned long long number) {
-	if (isNaN || isZero()) {
+	if (!*this) {
 		return *this;
 	}
 	if (number < bitRep.size()) {
@@ -330,19 +304,16 @@ VeryLongInt &VeryLongInt::operator>>=(unsigned long long number) {
 //friend comparison operators
 
 bool operator==(const VeryLongInt &x, const VeryLongInt &y) {
-	if (x.isNaN || y.isNaN || x.bitRep.size() != y.bitRep.size()) {
+	if (!x.isValid() || !y.isValid() || x.bitRep.size() != y.bitRep.size()) {
 		return false;
 	}
-	for (size_t i = 0; i < x.bitRep.size(); i++) {
-		if (x.bitRep[i] != y.bitRep[i]) {
-			return false;
-		}
-	}
-	return true;
+
+	//REFACTOR: for -> vector comparison
+	return x.bitRep == y.bitRep;
 }
 
 bool operator<(const VeryLongInt &x, const VeryLongInt &y) {
-	if (x.isNaN || y.isNaN) {
+	if (!x.isValid() || !y.isValid()) {
 		return false;
 	}
 	if (x.bitRep.size() != y.bitRep.size()) {
@@ -359,7 +330,7 @@ bool operator<(const VeryLongInt &x, const VeryLongInt &y) {
 //ostream operator
 
 std::ostream &operator<<(std::ostream &ostream, const VeryLongInt &number) {
-	if (number.isNaN) {
+	if (!number.isValid()) {
 		ostream << "NaN";
 		return ostream;
 	}

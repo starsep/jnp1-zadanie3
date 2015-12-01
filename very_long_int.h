@@ -11,7 +11,6 @@ private:
 	//private variables
 	static VeryLongInt nan;
 	std::vector<bool> bitRep;
-	bool isNaN;
 
 	//private methods
 	static const VeryLongInt & getNaN();
@@ -45,23 +44,8 @@ public:
 	bool isValid() const;
 	explicit operator bool() const;
 
-	//operators=
+	//operator=
 	VeryLongInt & operator=(const VeryLongInt&);
-	VeryLongInt & operator=(int);
-	VeryLongInt & operator=(long);
-	VeryLongInt & operator=(long long);
-	VeryLongInt & operator=(unsigned);
-	VeryLongInt & operator=(unsigned long);
-	VeryLongInt & operator=(unsigned long long);
-	VeryLongInt & operator=(const char *) = delete;
-	VeryLongInt & operator=(const std::string &) = delete;
-	VeryLongInt & operator=(bool) = delete;
-	VeryLongInt & operator=(char) = delete;
-	VeryLongInt & operator=(char16_t) = delete;
-	VeryLongInt & operator=(char32_t) = delete;
-	VeryLongInt & operator=(double) = delete;
-	VeryLongInt & operator=(float) = delete;
-	VeryLongInt & operator=(long double) = delete;
 
 	//compound arithmetic operators
 	VeryLongInt & operator+=(const VeryLongInt &);

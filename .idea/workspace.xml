@@ -17,7 +17,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cff60740-94fb-4fed-a60f-4545598f67a9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example3.cc" afterPath="$PROJECT_DIR$/example3.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/very_long_int.cc" afterPath="$PROJECT_DIR$/very_long_int.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/very_long_int.h" afterPath="$PROJECT_DIR$/very_long_int.h" />
     </list>
@@ -84,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/very_long_int.h">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+              <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -93,9 +94,83 @@
       <file leaf-file-name="very_long_int.cc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/very_long_int.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46044865">
-              <caret line="124" column="46" selection-start-line="124" selection-start-column="46" selection-end-line="124" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.41317365">
+              <caret line="161" column="27" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="27" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="very_long_int_test.cc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/very_long_int_test.cc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="333" column="12" selection-start-line="333" selection-start-column="12" selection-end-line="333" selection-end-column="12" />
+              <folding>
+                <element signature="e#6761#6788#0" expanded="true" />
+                <element signature="e#24496#24674#0" expanded="true" />
+                <element signature="e#24711#24991#0" expanded="true" />
+                <element signature="e#25028#25192#0" expanded="true" />
+                <element signature="e#25229#25492#0" expanded="true" />
+                <element signature="e#25529#25728#0" expanded="true" />
+                <element signature="e#25765#26051#0" expanded="true" />
+                <element signature="e#26088#26268#0" expanded="true" />
+                <element signature="e#26305#26574#0" expanded="true" />
+                <element signature="e#26611#26725#0" expanded="true" />
+                <element signature="e#26762#26942#0" expanded="true" />
+                <element signature="e#26979#27135#0" expanded="true" />
+                <element signature="e#27172#27439#0" expanded="true" />
+                <element signature="e#27476#27645#0" expanded="true" />
+                <element signature="e#27682#27837#0" expanded="true" />
+                <element signature="e#27874#28084#0" expanded="true" />
+                <element signature="e#28121#28306#0" expanded="true" />
+                <element signature="e#28343#28514#0" expanded="true" />
+                <element signature="e#28551#31526#0" expanded="true" />
+                <element signature="e#31717#31771#0" expanded="true" />
+                <element signature="e#31808#31861#0" expanded="true" />
+                <element signature="e#31898#31923#0" expanded="true" />
+                <element signature="e#31960#31985#0" expanded="true" />
+                <element signature="e#32022#32077#0" expanded="true" />
+                <element signature="e#32114#32169#0" expanded="true" />
+                <element signature="e#32206#32266#0" expanded="true" />
+                <element signature="e#32303#32462#0" expanded="true" />
+                <element signature="e#32499#32555#0" expanded="true" />
+                <element signature="e#32592#32648#0" expanded="true" />
+                <element signature="e#32685#32741#0" expanded="true" />
+                <element signature="e#32778#32834#0" expanded="true" />
+                <element signature="e#32871#32927#0" expanded="true" />
+                <element signature="e#32964#33032#0" expanded="true" />
+                <element signature="e#33069#33137#0" expanded="true" />
+                <element signature="e#33174#33375#0" expanded="true" />
+                <element signature="e#33412#33617#0" expanded="true" />
+                <element signature="e#33654#33855#0" expanded="true" />
+                <element signature="e#33892#34097#0" expanded="true" />
+                <element signature="e#34134#34222#0" expanded="true" />
+                <element signature="e#34259#34347#0" expanded="true" />
+                <element signature="e#34384#34474#0" expanded="true" />
+                <element signature="e#34511#34812#0" expanded="true" />
+                <element signature="e#34920#34931#0" expanded="true" />
+                <element signature="e#34968#34980#0" expanded="true" />
+                <element signature="e#35017#35029#0" expanded="true" />
+                <element signature="e#35066#35078#0" expanded="true" />
+                <element signature="e#35115#35127#0" expanded="true" />
+                <element signature="e#35164#35176#0" expanded="true" />
+                <element signature="e#35213#35226#0" expanded="true" />
+                <element signature="e#35263#35276#0" expanded="true" />
+                <element signature="e#35313#35323#0" expanded="true" />
+                <element signature="e#35360#35371#0" expanded="true" />
+                <element signature="e#35408#35419#0" expanded="true" />
+                <element signature="e#35456#35467#0" expanded="true" />
+                <element signature="e#35504#35515#0" expanded="true" />
+                <element signature="e#35552#35563#0" expanded="true" />
+                <element signature="e#35600#35612#0" expanded="true" />
+                <element signature="e#35649#35661#0" expanded="true" />
+                <element signature="e#35760#37811#0" expanded="true" />
+                <element signature="e#37848#37947#0" expanded="true" />
+                <element signature="e#37984#38087#0" expanded="true" />
+                <element signature="e#38124#38239#0" expanded="true" />
+                <element signature="e#38276#38413#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -110,31 +185,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bad_example2.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bad_example2.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bad_example4.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bad_example4.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -158,12 +213,14 @@
         <option value="$USER_HOME$/Pobrane/very_long_int.txt" />
         <option value="$USER_HOME$/Pobrane/very_long_int (1).txt" />
         <option value="$PROJECT_DIR$/example1.cc" />
-        <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/test.sh" />
         <option value="$PROJECT_DIR$/example2.cc" />
         <option value="$PROJECT_DIR$/example4.cc" />
-        <option value="$PROJECT_DIR$/very_long_int.h" />
         <option value="$PROJECT_DIR$/example3.cc" />
+        <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/TESTS/very_long_int.cc" />
+        <option value="$PROJECT_DIR$/very_long_int_test.cc" />
+        <option value="$PROJECT_DIR$/very_long_int.h" />
         <option value="$PROJECT_DIR$/very_long_int.cc" />
       </list>
     </option>
@@ -333,6 +390,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24986821" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19666667" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -341,7 +399,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19666667" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -389,14 +446,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bad_example4.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -682,13 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/very_long_int_tresc.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0862069">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bad_example3.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -708,14 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -760,18 +794,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/very_long_int_tresc.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/very_long_int_test.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="333" column="12" selection-start-line="333" selection-start-column="12" selection-end-line="333" selection-end-column="12" />
+          <folding>
+            <element signature="e#6761#6788#0" expanded="true" />
+            <element signature="e#24496#24674#0" expanded="true" />
+            <element signature="e#24711#24991#0" expanded="true" />
+            <element signature="e#25028#25192#0" expanded="true" />
+            <element signature="e#25229#25492#0" expanded="true" />
+            <element signature="e#25529#25728#0" expanded="true" />
+            <element signature="e#25765#26051#0" expanded="true" />
+            <element signature="e#26088#26268#0" expanded="true" />
+            <element signature="e#26305#26574#0" expanded="true" />
+            <element signature="e#26611#26725#0" expanded="true" />
+            <element signature="e#26762#26942#0" expanded="true" />
+            <element signature="e#26979#27135#0" expanded="true" />
+            <element signature="e#27172#27439#0" expanded="true" />
+            <element signature="e#27476#27645#0" expanded="true" />
+            <element signature="e#27682#27837#0" expanded="true" />
+            <element signature="e#27874#28084#0" expanded="true" />
+            <element signature="e#28121#28306#0" expanded="true" />
+            <element signature="e#28343#28514#0" expanded="true" />
+            <element signature="e#28551#31526#0" expanded="true" />
+            <element signature="e#31717#31771#0" expanded="true" />
+            <element signature="e#31808#31861#0" expanded="true" />
+            <element signature="e#31898#31923#0" expanded="true" />
+            <element signature="e#31960#31985#0" expanded="true" />
+            <element signature="e#32022#32077#0" expanded="true" />
+            <element signature="e#32114#32169#0" expanded="true" />
+            <element signature="e#32206#32266#0" expanded="true" />
+            <element signature="e#32303#32462#0" expanded="true" />
+            <element signature="e#32499#32555#0" expanded="true" />
+            <element signature="e#32592#32648#0" expanded="true" />
+            <element signature="e#32685#32741#0" expanded="true" />
+            <element signature="e#32778#32834#0" expanded="true" />
+            <element signature="e#32871#32927#0" expanded="true" />
+            <element signature="e#32964#33032#0" expanded="true" />
+            <element signature="e#33069#33137#0" expanded="true" />
+            <element signature="e#33174#33375#0" expanded="true" />
+            <element signature="e#33412#33617#0" expanded="true" />
+            <element signature="e#33654#33855#0" expanded="true" />
+            <element signature="e#33892#34097#0" expanded="true" />
+            <element signature="e#34134#34222#0" expanded="true" />
+            <element signature="e#34259#34347#0" expanded="true" />
+            <element signature="e#34384#34474#0" expanded="true" />
+            <element signature="e#34511#34812#0" expanded="true" />
+            <element signature="e#34920#34931#0" expanded="true" />
+            <element signature="e#34968#34980#0" expanded="true" />
+            <element signature="e#35017#35029#0" expanded="true" />
+            <element signature="e#35066#35078#0" expanded="true" />
+            <element signature="e#35115#35127#0" expanded="true" />
+            <element signature="e#35164#35176#0" expanded="true" />
+            <element signature="e#35213#35226#0" expanded="true" />
+            <element signature="e#35263#35276#0" expanded="true" />
+            <element signature="e#35313#35323#0" expanded="true" />
+            <element signature="e#35360#35371#0" expanded="true" />
+            <element signature="e#35408#35419#0" expanded="true" />
+            <element signature="e#35456#35467#0" expanded="true" />
+            <element signature="e#35504#35515#0" expanded="true" />
+            <element signature="e#35552#35563#0" expanded="true" />
+            <element signature="e#35600#35612#0" expanded="true" />
+            <element signature="e#35649#35661#0" expanded="true" />
+            <element signature="e#35760#37811#0" expanded="true" />
+            <element signature="e#37848#37947#0" expanded="true" />
+            <element signature="e#37984#38087#0" expanded="true" />
+            <element signature="e#38124#38239#0" expanded="true" />
+            <element signature="e#38276#38413#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/very_long_int.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+          <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/very_long_int.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46044865">
-          <caret line="124" column="46" selection-start-line="124" selection-start-column="46" selection-end-line="124" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.41317365">
+          <caret line="161" column="27" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="27" />
           <folding />
         </state>
       </provider>
