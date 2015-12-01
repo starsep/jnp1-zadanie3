@@ -3,6 +3,8 @@ CFLAGS=-Wall -Wunused -Wshadow -pedantic -O2 -std=c++11 -g
 OBJECTS=example1 example2 example3 example4
 BAD_OBJECTS=bad_example1 bad_example2 bad_example3 bad_example4 bad_example5 bad_example6
 
+.PHONY: all bad clean tests
+
 all: $(OBJECTS)
 
 bad: $(BAD_OBJECTS)
