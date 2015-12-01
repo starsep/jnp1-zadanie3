@@ -17,4 +17,10 @@ bad_example%: bad_example%.cc very_long_int.o
 	$(COMPILER) $(CFLAGS) -o $@ $^
 
 clean:
-	rm -f *.o $(OBJECTS) $(BAD_OBJECTS)
+	rm -rf TESTS *.o $(OBJECTS) $(BAD_OBJECTS)
+
+tests: run_tests.csh very_long_int.cc very_long_int.h
+	mkdir -p TESTS
+	cp very_long_int.cc very_long_int.h
+	./run_tests.csh TESTS
+	rm -rf TESTS
