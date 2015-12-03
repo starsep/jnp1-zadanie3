@@ -54,12 +54,12 @@ int main() {
 	aa %= aa;
 	aa <<= 42;
 	aa >>= 42;
-	aa == aa;
+	/*aa == aa;
 	aa != aa;
 	aa < aa;
 	aa <= aa;
 	aa > aa;
-	aa >= aa;
+	aa >= aa;*/
 
 	//Zero() += Zero();
 	//NaN() += NaN();
