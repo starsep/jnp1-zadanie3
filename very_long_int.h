@@ -11,6 +11,7 @@ private:
 	//private variables
 	static VeryLongInt nan;
 	std::vector<bool> bitRep;
+	bool isNaN;
 
 	//private methods
 	static const VeryLongInt & getNaN();
